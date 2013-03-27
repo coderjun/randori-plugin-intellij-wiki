@@ -4,6 +4,7 @@ The plugin only work in the Pro or Ultimate editions of IntelliJ IDEA, so the co
 ## Step 1: download
 Download the latest version of the SDK:
 [Randori SDK](http://www.teotigraphix.com/labs/RandoriSDK-0.2.0.zip)
+
 After download, unzip the SDK to a directory of your liking.
 
 After that download the latest version of the plugin:
