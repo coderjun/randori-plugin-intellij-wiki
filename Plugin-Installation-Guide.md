@@ -34,6 +34,7 @@ To compile your project, use the key combo **CTRL+SHIFT+ALT+R**. Verify that the
 
 For now, we refer you to the demo application to see how the HTML, CSS, etc works. If you have specific questions you can ask them on the [Randori Forum](http://randoriframework.com/forum/).
 
+## Step 4: Running the app
 Only one thing is left to do now: You'll need to create a run configuration for the Randori app. To do so,
 select _Run -> Edit configurations..._
 In the resulting dialog, click on the green '+' in the top left corner and select _Randori Application_.
