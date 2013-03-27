@@ -17,7 +17,7 @@ In the right part of the screen, click 'Install plugin from disk...' and select 
 That's all for the plugin installation!
 
 ## Step 3: Creating a project
-Next, create a new project and select 'Randori module', give it a name and click on the 'New...' button next to the SDK listcontrol and select the directory where you unzipped the SDK to.
+Next, create a new project and select '_Randori module_', give it a name and click on the '_New..._' button next to the SDK listcontrol and select the directory where you unzipped the SDK to.
 
 Click 'Finish'.
 
@@ -25,23 +25,24 @@ That's it, you've created your first Randori project.
 
 Next, check out some of the demo applications in this repository:
 [Randori Demo App Repository](https://github.com/RandoriFrameworkAS/DemoApplications)
+
 This can serve as a reference for your own ventures at first.
 
-To add a class or interface there are 'Randori Class' and 'Randori Interface' options underneath the 'New' menu item. (Right-click on a directory for that)
+To add a class or interface there are '_Randori Class_' and '_Randori Interface_' options underneath the 'New' menu item. (Right-click on a directory for that)
 
-To compile your project, use the key combo **CTRL+SHIFT+ALT+R**. Verify that the compilation worked by checking the existende of a folder called 'generated' in the root of your project.
+To compile your project, use the key combo **CTRL+SHIFT+ALT+R**. Verify that the compilation worked by checking the existence of a folder called 'generated' in the root of your project.
 
 For now, we refer you to the demo application to see how the HTML, CSS, etc works. If you have specific questions you can ask them on the [Randori Forum](http://randoriframework.com/forum/).
 
 Only one thing is left to do now: You'll need to create a run configuration for the Randori app. To do so,
-select Run -> Edit configurations...
-In the resulting dialog, click on the green '+' in the top left corner and select 'Randori Application'.
+select '_Run -> Edit configurations..._'
+In the resulting dialog, click on the green '+' in the top left corner and select '_Randori Application_'.
 
 First, give it a name and then select your Randori module from the drop downlist.
 
-Now the remaining text boxes for 'Index' and 'Webroot' have these purposes:
+Now the remaining text boxes for '_Index_' and '_Webroot_' have these purposes:
 By default the Randori plugin assumes that the webroot for your application is equal to your project root.
-So, it assumes there is a file called 'index.html' directly in your root. Now, should you put everything underneath the 'src' folder, you'll have to enter 'src/index.html' in the 'Index' textbox.
+So, it assumes there is a file called 'index.html' directly in your root. Now, should you put everything underneath the 'src' folder, you'll have to enter '_src/index.html_' in the '_Index_' textbox.
 
 Also by default, the plugin runs its own embedded webserver that uses your project root as its webroot,
 so normally, when you run the application, a browser will open with a URL like this: _http://localhost:14237/index.html_
