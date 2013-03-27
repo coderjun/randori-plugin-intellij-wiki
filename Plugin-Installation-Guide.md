@@ -7,12 +7,12 @@ Download the latest version of the SDK:
 
 After download, unzip the SDK to a directory of your liking.
 
-After that download the latest version of the plugin:
-[Randori IntelliJ Plugin](http://www.teotigraphix.com/labs/RandoriPlugin-0.2.0.zip)
-
 ## Step 2: Installation
-Open up IntelliJ, and go to File -> Settings -> Plugins.
-In the right part of the screen, click 'Install plugin from disk...' and select the zip you just downloaded. After that you'll need to restart  IntelliJ.
+Open up IntelliJ, and go to '_File -> Settings... -> Plugins_'.
+In the right part of the screen, click 'Browse repositories...' and enter the search term 'Randori' into the textbox in the right upper corner of the screen.
+This will, probably, yield just one result called something along the lines of 'Randori compiler vx.x.x',
+double click this entry and download the plugin, after that press '_close_' and then '_apply_'.
+Now you'll need to restart IntelliJ, go ahead and do so.
 
 That's all for the plugin installation!
 
