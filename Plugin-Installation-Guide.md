@@ -1,7 +1,7 @@
 ## System requirements
 The plugin only works in the Pro or Ultimate editions of IntelliJ IDEA, so the community version is not supported at this moment.
 
-## Step 1: download
+## Step 1: Download
 Download the latest version of the SDK:
 [Randori SDK](http://www.teotigraphix.com/labs/RandoriSDK-0.2.0.zip)
 
