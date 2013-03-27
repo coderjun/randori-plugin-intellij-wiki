@@ -1,5 +1,5 @@
 ## System requirements
-The plugin only work in the Pro or Ultimate editions of IntelliJ IDEA, so the community version is not supported at this moment.
+The plugin only works in the Pro or Ultimate editions of IntelliJ IDEA, so the community version is not supported at this moment.
 
 ## Step 1: download
 Download the latest version of the SDK:
