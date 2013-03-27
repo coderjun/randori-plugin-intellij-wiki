@@ -54,6 +54,7 @@ http://localhost/mysubdirectory.
 
 After that you can click OK and your run target will have been created. Check this by using the combo **SHIFT-F10**: A browser should open pointing to the localhost URL just described.
 
+### In closing
 And that's it! If you find any bugs, or have ideas for new functionality please get in touch with us by using the issues list here:
 [Randori Plugin Issue List](https://github.com/RandoriFrameworkAS/Plugin/issues)
 
