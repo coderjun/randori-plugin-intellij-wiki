@@ -24,7 +24,7 @@ Click _Finish_.
 That's it, you've created your first Randori project.
 
 Next, check out some of the demo applications in this repository:
-[Randori Demo App Repository](https://github.com/RandoriFrameworkAS/DemoApplications)
+[Randori Demo App Repository](https://github.com/RandoriAS/randori-demos-bundle)
 
 This can serve as a reference for your own ventures at first.
 
@@ -56,7 +56,7 @@ After that you can click OK and your run target will have been created. Check th
 
 ### In closing
 And that's it! If you find any bugs, or have ideas for new functionality please get in touch with us by using the issues list here:
-[Randori Plugin Issue List](https://github.com/RandoriFrameworkAS/Plugin/issues)
+[Randori Plugin Issue List](https://github.com/RandoriAS/randori-plugin-intellij/issues)
 
 For ideas and bugs in the Randori framework itself, please use this list:
-[Randori Framework Issue List](https://github.com/RandoriFrameworkAS/Randori/issues)
+[Randori Framework Issue List](https://github.com/RandoriAS/randori-framework/issues)
