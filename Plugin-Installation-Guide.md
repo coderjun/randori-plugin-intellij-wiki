@@ -28,7 +28,7 @@ Next, check out some of the demo applications in this repository:
 
 This can serve as a reference for your own ventures at first.
 
-To add a class or interface there are _Randori Class_ and _Randori Interface_ options underneath the 'New' menu item. (Right-click on a directory for that)
+To add a class or interface there are _Randori Class_ and _Randori Interface_ options underneath the _New_ menu item. (Right-click on a directory for that)
 
 To compile your project, use the key combo **CTRL+SHIFT+ALT+R**. Verify that the compilation worked by checking the existence of a folder called 'generated' in the root of your project.
 
