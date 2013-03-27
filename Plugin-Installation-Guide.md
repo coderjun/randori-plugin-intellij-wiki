@@ -14,7 +14,7 @@ After that download the latest version of the plugin:
 Open up IntelliJ, and go to File -> Settings -> Plugins.
 In the right part of the screen, click 'Install plugin from disk...' and select the zip you just downloaded. After that you'll need to restart  IntelliJ.
 
-Alright, and that's all for the plugin installation!
+That's all for the plugin installation!
 
 ## Step 3: Creating a project
 Next, create a new project and select 'Randori module', give it a name and click on the 'New...' button next to the SDK listcontrol and select the directory where you unzipped the SDK to.
