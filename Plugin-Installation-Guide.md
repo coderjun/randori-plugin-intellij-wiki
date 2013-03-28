@@ -3,7 +3,7 @@ The plugin only works in the Ultimate edition of IntelliJ IDEA, the community ed
 
 ## Step 1: Download SDK
 Download the latest version of the SDK:
-[Randori SDK](http://www.teotigraphix.com/labs/randori-sdk-0.2.1.zip)
+[Randori SDK](https://github.com/RandoriAS/randori-sdk/archive/v0.2.1.zip)
 
 After download, unzip the SDK to a directory of your liking.
 
