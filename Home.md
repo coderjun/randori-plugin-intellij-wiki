@@ -1,1 +1,3 @@
-Welcome to the Plugin wiki!
+![Randori Framework](images/Randori_256.png)
+
+Welcome to the Randori IntelliJ IDEA Plugin wiki!
