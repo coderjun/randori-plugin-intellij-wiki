@@ -72,10 +72,10 @@ In this lesson, you will begin to work with the dependency and view injection co
     This public method will be used later to update the message window from other areas of the application.
 
 12. If you want to test this new method, you can add a call to it in the onRegister() method.
-
-    override protected function onRegister():void {
-        showMessage("Title Goes Here", "Message Goes Here");
-    }
+  
+  override protected function onRegister():void {
+      showMessage("Title Goes Here", "Message Goes Here");
+  }
 Save and run, and you can see the new title and messages.  Be sure to delete the contents of this method when you are done, as this information will be put into another class in the next lesson.
 
     override protected function onRegister():void {
