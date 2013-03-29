@@ -180,55 +180,59 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
 
     This will make decorate the unordered list as a simple list.
 
-25) Inside of the unordered list, add a list element with an id of template as the following code shows:
+28. Inside of the unordered list, add a list element with an id of template as the following code shows:
 
-  <body class="peopleView">
-    <ul id="names" class="simpleList">
-        <li id="template"></li>
-    </ul>
-  </body>
+      <body class="peopleView">
+        <ul id="names" class="simpleList">
+          <li id="template"></li>
+        </ul>
+      </body>
 
-This will specify the HTML fragment that Randori will use as a template.
+    This will specify the HTML fragment that Randori will use as a template.
 
-26) Finally, specify that we wish to show the name field from the data set the list will be provided
+29. Finally, specify that we wish to show the name field from the data set the list will be provided
 
-  <body class="peopleView">
-    <ul id="names" class="simpleList">
-        <li id="template">{name}</li>
-    </ul>
-  </body>
+      <body class="peopleView">
+        <ul id="names" class="simpleList">
+          <li id="template">{name}</li>
+        </ul>
+      </body>
 
-The Randori templating engine is very simple. It can accept a field name, a dot-expression to find the field name from the object root, or an *, meaning the entire object. It can be used in combination with other techniques to become more complex but is intended for simple use cases.
+    The Randori templating engine is very simple. It can accept a field name, a dot-expression to find the 
+    field name from the object root, or an *, meaning the entire object. It can be used in combination with 
+    other techniques to become more complex but is intended for simple use cases.
 
-27) Return to the PeopleMediator. Add a public var called names of type SimpleList. Decorate it with the View metadata.
+30. Return to the PeopleMediator. Add a public var called names of type SimpleList. Decorate it with the View 
+    metadata.
 
-  [View]
-  public var names:SimpleList;
+      [View]
+      public var names:SimpleList;
 
-28) Override the onRegister() method so that we can provide some test data to the list:
+31. Override the onRegister() method so that we can provide some test data to the list:
   
-  override protected function onRegister():void {
-  }
+      override protected function onRegister():void {
+      }
 
-29) Inside the onRegister() method create a couple of simple objects with a name property and add them to an array as the following code shows:
+32. Inside the onRegister() method create a couple of simple objects with a name property and add them to an 
+    array as the following code shows:
 
-  override protected function onRegister():void {
-    var o1:Object = {name:"Mike"};
-    var o2:Object = {name:"Roland"};
-    var ar:Array = [o1,o2];
-  }
+      override protected function onRegister():void {
+        var o1:Object = {name:"Mike"};
+        var o2:Object = {name:"Roland"};
+        var ar:Array = [o1,o2];
+      }
 
-Yes, this is just temporary. In the next lesson, we will get this data from a remote service.
+    Yes, this is just temporary. In the next lesson, we will get this data from a remote service.
 
-30) Finally, assign the array instance to the data property of the SimpleList instance:
+33. Finally, assign the array instance to the data property of the SimpleList instance:
 
-  override protected function onRegister():void {
-    var o1:Object = {name:"Mike"};
-    var o2:Object = {name:"Roland"};
-    var ar:Array = [o1,o2];
-    names.data = ar;
-  }
+      override protected function onRegister():void {
+        var o1:Object = {name:"Mike"};
+        var o2:Object = {name:"Roland"};
+        var ar:Array = [o1,o2];
+        names.data = ar;
+      }
 
-31) Save, build and run your app.
+34. Save, build and run your app.
 
 When you press the load more button, you will see your people.html file is loaded. Randori finds the dynamic behaviors and mediators associated with this file and instantiates those as well, resulting in a list appearing in that area.
