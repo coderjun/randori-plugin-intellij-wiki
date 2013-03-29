@@ -149,14 +149,19 @@ In this lesson, you will add the basic script tags needed for Randori along with
 
     Remember, the goal at this stage is readable, not optimized code.
 
-12) Return to the index.html file. As a starting point, find your div with Simple Test text and add the following code:
+12. Return to the index.html file. As a starting point, find your div with Simple Test text and add the 
+    following code:
 
-  <div data-behavior="behaviors.MessageWindow">Simple Test</div>
+      <div data-behavior="behaviors.MessageWindow">Simple Test</div>
 
-This code indicates that the MessageWindow behavior should decorate this node. Using HTML data attributes is a quick way to test, but it is more limiting and less elegant that other approaches which we will explore shortly.
+    This code indicates that the MessageWindow behavior should decorate this node. Using HTML data attributes 
+    is a quick way to test, but it is more limiting and less elegant that other approaches which we will 
+    explore shortly.
 
-13) Now click the green play button above to launch the application. The web browser will show your application with the message I am registered where Simple Test used to be.
+13. Now click the green play button above to launch the application. The web browser will show your 
+    application with the message I am registered where Simple Test used to be.
 
-Randori automatically loaded the MessageWindow behavior when it was needed, instantiated it and provided it with the decorateNode, which your behavior then modified.
+    Randori automatically loaded the MessageWindow behavior when it was needed, instantiated it and provided 
+    it with the decorateNode, which your behavior then modified.
 
 This is an extremely simple example, but it is the basis for much more complicated constructs as your application evolves.
