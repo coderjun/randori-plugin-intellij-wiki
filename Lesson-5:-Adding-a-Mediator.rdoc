@@ -18,26 +18,16 @@ In this lesson, you will add a mediator to the project. A mediator’s job is to
 
 6. Right click on the mediators package, add navigate to New -> Randori Mediator.  Name it IndexMediator
 
-   This will be the mediator for your index.html. All Mediators extend from AbstractMediator. They are are a 
-   specialized form of behaviors but with a different purpose. The inheritance is IndexMediator -> 
-   AbstractMediator -> AbstractBehavior.
+   This will be the mediator for your index.html. All Mediators extend from AbstractMediator. They are are a specialized form of behaviors but with a different purpose. The inheritance is IndexMediator -> AbstractMediator -> AbstractBehavior.
 
-7. Above the constructor for IndexMediator, you will add a new public variable named message of type 
-   MessageWindow. Add a [View] metadata above it.
+7. Above the constructor for IndexMediator, you will add a new public variable named message of type MessageWindow. Add a [View] metadata above it.
 
      [View]
      public var messageWindow:MessageWindow;
 
-   Just like in the MessageWindow behavior, this line of code requests a view injection for the Mediator. The 
-   mediator is requesting that Randori find an element with the id of messageWindow in the DOM fragment that 
-   this will soon be managed by this mediator and to inject a reference to that DOM element here. 
+   Just like in the MessageWindow behavior, this line of code requests a view injection for the Mediator. The mediator is requesting that Randori find an element with the id of messageWindow in the DOM fragment that this will soon be managed by this mediator and to inject a reference to that DOM element here. 
 
-   However, if you recall, you earlier learned  that the goal of behaviors was to decorate DOM elements and provide an 
-   API. You currently have a behavior defined on the div with an id of messageWindow. That behavior indicates 
-   that it should be decorated by MessageWindow. Therefore, instead of receiving a DOM fragment in the
-   mediator, Randori is going to inject a reference to the MessageWindow instance that managed that DOM
-   fragment. Meaning that you won’t be dealing with the DOM directly but rather with an instance of the class 
-   you wrote.
+   However, if you recall, you earlier learned  that the goal of behaviors was to decorate DOM elements and provide an API. You currently have a behavior defined on the div with an id of messageWindow. That behavior indicates that it should be decorated by MessageWindow. Therefore, instead of receiving a DOM fragment in the mediator, Randori is going to inject a reference to the MessageWindow instance that managed that DOM fragment. Meaning that you won’t be dealing with the DOM directly but rather with an instance of the class you wrote.
 
 8.  Notice that the class created already has an override the protected onRegister() method of the mediator:
 
@@ -45,12 +35,7 @@ In this lesson, you will add a mediator to the project. A mediator’s job is to
 
      }
 
-   Mediators are a type of behavior and also have an onRegister() method. Now a word on timing. Randori 
-   ensures that behaviors in children are resolved and registered before parent behaviors. The means that by 
-   the time the onRegister() method of the mediator is invoked, the onRegister() methods of any behaviors 
-   under the mediator will have already executed. This is true recursively, meaning that regardless of how 
-   deeply behaviors are statically nested, the inner most behaviors will always resolve and register before 
-   the outer most.
+    Mediators are a type of behavior and also have an onRegister() method. Now a word on timing. Randori ensures that behaviors in children are resolved and registered before parent behaviors. The means that by the time the onRegister() method of the mediator is invoked, the onRegister() methods of any behaviors under the mediator will have already executed. This is true recursively, meaning that regardless of how deeply behaviors are statically nested, the inner most behaviors will always resolve and register before the outer most.
 
 9. Inside the onRegister() method, invoke the showMessage() method of the MessageWindow instance passing it 
    values for a title and message.
