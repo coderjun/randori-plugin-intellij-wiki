@@ -88,20 +88,29 @@ In this lesson, you will continue to use Randori Guice, a Randori specific port 
     Second, contexts interact with each other. For example, Randori has a default context that it uses for any    
     Randori application. It looks like this:
 
-  override public function configure(binder:Binder):void {
-    //make the StyleExtensionMap a Singleton
-    binder.bind(StyleExtensionMap).inScope(Scope.Singleton).to(StyleExtensionMap);
+      override public function configure(binder:Binder):void {
+        //make the StyleExtensionMap a Singleton
+        binder.bind(StyleExtensionMap).inScope(Scope.Singleton).to(StyleExtensionMap);
   
-    //Setup a NoOp translator as the default
-    binder.bind( AbstractTranslator ).to( NoOpTranslator );
-  }
+        //Setup a NoOp translator as the default
+        binder.bind( AbstractTranslator ).to( NoOpTranslator );
+      }
 
-When you create your new context it does not eliminate the rules from the default. Instead the two interact. The default Randori context manages all object construction for all nodes directly in its descendants. However, once the BoringContext is created, it now becomes the _primary_ context for creating children under the new context. 
+    When you create your new context it does not eliminate the rules from the default. Instead the two 
+    interact. The default Randori context manages all object construction for all nodes directly in its 
+    descendants. However, once the BoringContext is created, it now becomes the _primary_ context for creating 
+    children under the new context. 
 
-I say primary because, in the event that you ask for something and the BoringContext does not have a specific rule for building it, and the parent context does have a specific rule, then the parent context fulfills the dependency.
+    I say primary because, in the event that you ask for something and the BoringContext does not have a 
+    specific rule for building it, and the parent context does have a specific rule, then the parent context 
+    fulfills the dependency.
 
-Imagine that you have an object under the body that requires a StyleExtensionMap. This particular object has been specified as a singleton in the parent context, but no rule exists in the BoringContext. In this case, the more specific rule from the parent context will cause the StyleExtensionMap to be of the same shared instance used by the entire application.
+    Imagine that you have an object under the body that requires a StyleExtensionMap. This particular object 
+    has been specified as a singleton in the parent context, but no rule exists in the BoringContext. In this 
+    case, the more specific rule from the parent context will cause the StyleExtensionMap to be of the same 
+    shared instance used by the entire application.
 
-In effect, contexts cascade. This means rules can override each other for areas of an application but you do not need to redefine rules in lower contexts to have them available.
+    In effect, contexts cascade. This means rules can override each other for areas of an application but you 
+    do not need to redefine rules in lower contexts to have them available.
 
 As a last point, a context can be placed on any node, not just the body.
