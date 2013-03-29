@@ -83,4 +83,4 @@ In this lesson, you will begin to work with the dependency and view injection co
 
     This public method will be used later to update the message window from other areas of the application.
 
-In the next lesson you will create a mediator to manage the index and interact with this behavior.
+In the next lesson you will {create a mediator to manage the index and interact with this behavior}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-5:-Adding-a-Mediator].
