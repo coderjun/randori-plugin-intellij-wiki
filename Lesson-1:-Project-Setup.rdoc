@@ -16,7 +16,7 @@ Using Randori for ActionScript requires IntelliJ IDEA, the Randori Plugin and SD
 
    Now you'll need to restart IntelliJ, go ahead and do so.
 
-3. Next, you will need to extract the contents of the RandoriSDK-*.zip to a known location on your drive.
+3. Next, you will need to extract the contents of the v0.*.zip to a known location on your drive.
 
 4. Once the SDK is unzipped, return to IntelliJ. Click Create New Project.
 
