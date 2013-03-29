@@ -164,4 +164,6 @@ In this lesson, you will add the basic script tags needed for Randori along with
     Randori automatically loaded the MessageWindow behavior when it was needed, instantiated it and provided 
     it with the decorateNode, which your behavior then modified.
 
-This is an extremely simple example, but it is the basis for much more complicated constructs as your application evolves.
+This is an extremely simple example, but it is the basis for much more complicated constructs as your application evolves. 
+
+In the next section we will look at {View Injection with your mediators}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-4:-View-Injection].
