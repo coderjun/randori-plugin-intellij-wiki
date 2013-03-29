@@ -63,4 +63,4 @@ In this lesson, you will use CSS to eliminate the data-* attributes in your code
 
     Everything should work as before, but now working from the CSS defined mediator and behaviors.
 
-In the next lesson, you will learn about Randori’s dependency injection framework (Guice) as you build and inject objects into your mediators.
+In the next lesson, you will learn about {Randori’s dependency injection framework (Guice)}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-7:-Dependency-Injection] as you build and inject objects into your mediators.
