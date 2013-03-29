@@ -4,86 +4,95 @@ The ViewStack understands how to perform the dynamic loading of your view’s ht
 
 With Randori, everything starts with a URL to an HTML file. After that HTML file is loaded, Randori decorates with the requisite functionality allowing it to become interactive.
 
-1) Ensure you have the SimpleTest project open in IntelliJ
+1. Ensure you have the SimpleTest project open in IntelliJ
 
-2) Open behaviors.css from the assets folder
+2. Open behaviors.css from the assets folder
 
-3) Add the following viewStack class selector to the bottom of the css file. Then save the file.
+3. Add the following viewStack class selector to the bottom of the css file. Then save the file.
 
-  .viewStack {
-    -randori-behavior: "randori.behaviors.ViewStack";
-  }
+     .viewStack {
+       -randori-behavior: "randori.behaviors.ViewStack";
+     }
 
-This adds a behavior for the ViewStack class, which is part of the Randori framework
+   This adds a behavior for the ViewStack class, which is part of the Randori framework
 
-4) Switch to the index.html
+4. Switch to the index.html
 
-5) Below the existing messageWindow div, add a new input tag with the id loadMore and type button as show below:
+5. Below the existing messageWindow div, add a new input tag with the id loadMore and type button as show 
+   below:
 
-  <body class="simpleApp">
-    <div id="messageWindow" class="messageWindow">
-      <div id="title">Simple Test</div>
-      <div id="message">My Message</div>
-    </div>
-    <input id="loadMore" value="Load More" type="button"/>
-  </body>
+     <body class="simpleApp">
+       <div id="messageWindow" class="messageWindow">
+         <div id="title">Simple Test</div>
+         <div id="message">My Message</div>
+       </div>
+       <input id="loadMore" value="Load More" type="button"/>
+     </body>
 
-6) Below the new input, add a new div with an id of myViewStack and a class attribute of viewStack. Although this code would eventually be better placed inside of a style declaration, also set relative positioning on the ViewStack as follows:
+6. Below the new input, add a new div with an id of myViewStack and a class attribute of viewStack. Although 
+   this code would eventually be better placed inside of a style declaration, also set relative positioning on 
+   the ViewStack as follows:
 
-  <body class="simpleApp">
-    <div id="messageWindow" class="messageWindow">
-      <div id="title">Simple Test</div>
-      <div id="message">My Message</div>
-    </div>
-    <input id="loadMore" value="Load More" type="button"/>
-    <div id="myViewStack" class="viewStack" style="position:relative"/>
-  </body>
+     <body class="simpleApp">
+       <div id="messageWindow" class="messageWindow">
+         <div id="title">Simple Test</div>
+         <div id="message">My Message</div>
+       </div>
+       <input id="loadMore" value="Load More" type="button"/>
+       <div id="myViewStack" class="viewStack" style="position:relative"/>
+     </body>
 
-You are simply decorating that div with a ViewStack behavior.
+   You are simply decorating that div with a ViewStack behavior.
 
-7) Right click on your SimpleTest project and create a top level Directory named views
+7. Right click on your SimpleTest project and create a top level Directory named views
 
-8) Inside of the views directory, create a new HTML file called people.html
+8. Inside of the views directory, create a new HTML file called people.html
 
-9) Inside the body of people.html, just add the text: This is people
+9. Inside the body of people.html, just add the text: This is people
   
-  <body>
-    This is people
-  </body>
+     <body>
+       This is people
+     </body>
 
-10) Open the IndexMediator class.
+10. Open the IndexMediator class.
 
-11) Add a public variable named loadMore of type JQuery and decorate it with View metadata
+11. Add a public variable named loadMore of type JQuery and decorate it with View metadata
 
-  [View]
-  public var loadMore:JQuery;
+      [View]
+      public var loadMore:JQuery;
 
-You are requesting that the loadMore input defined in your HTML file be injected here.
+    You are requesting that the loadMore input defined in your HTML file be injected here.
 
-12) Add a public variable named myViewStack of type ViewStack and decorate it with View metadata
+12. Add a public variable named myViewStack of type ViewStack and decorate it with View metadata
 
-  [View]
-  public var myViewStack:ViewStack;
+      [View]
+      public var myViewStack:ViewStack;
 
-You are requesting that the ViewStack behavior defined in your HTML file be injected here.
+    You are requesting that the ViewStack behavior defined in your HTML file be injected here.
 
-11) In your onRegister() method, below the existing code, add a click handler to the loadMore input using JQuery.
+11. In your onRegister() method, below the existing code, add a click handler to the loadMore input using 
+    JQuery.
 
-  loadMore.click( handleLoadMore );
+      loadMore.click( handleLoadMore );
 
-You will notice as you are typing that there are several click() methods. Right now these are named numerically but we will provide a superior naming convention shortly. ActionScript does not have method overloading and this is exactly the use case where it is needed.
+    You will notice as you are typing that there are several click() methods. Right now these are named 
+    numerically but we will provide a superior naming convention shortly. ActionScript does not have method 
+    overloading and this is exactly the use case where it is needed.
 
-12) Create a new private handleLoadMore() method which takes an event of type randori.jquery.Event as follows:
+12. Create a new private handleLoadMore() method which takes an event of type randori.jquery.Event as follows:
 
-  private function handleLoadMore( event:Event ):void {
-  }
+      private function handleLoadMore( event:Event ):void {
+      }
 
-13) This provides an excellent opportunity to talk about cleanup. Just below your onRegister() method, override a protected function named onDeregister().
+13. This provides an excellent opportunity to talk about cleanup. Just below your onRegister() method, 
+    override a protected function named onDeregister().
   
-  override protected function onDeregister():void {
-  }
+      override protected function onDeregister():void {
+      }
 
-The onDeregister() method is the opposite of the onRegister() it is called anytime a behavior is being removed from the DOM. You are expected to clean up your own mess in this method. The onDeregister() of a parent is called just before the onDeregister() of child behaviors.
+    The onDeregister() method is the opposite of the onRegister() it is called anytime a behavior is being 
+    removed from the DOM. You are expected to clean up your own mess in this method. The onDeregister() of a 
+    parent is called just before the onDeregister() of child behaviors.
 
 14) Inside the onDeregister() method, cleanup the event listener on the loadMore input:
 
