@@ -147,7 +147,7 @@ In this lesson, you will add the basic script tags needed for Randori along with
          return p;
       };
 
-   Remember, the goal at this stage is readable, not optimized code.
+    Remember, the goal at this stage is readable, not optimized code.
 
 12) Return to the index.html file. As a starting point, find your div with Simple Test text and add the following code:
 
