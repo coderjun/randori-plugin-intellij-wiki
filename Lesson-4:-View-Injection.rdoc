@@ -1,6 +1,6 @@
 In this lesson, you will begin to work with the dependency and view injection concepts of Randori. These concepts are the key to Randori’s dynamic loading approach and to the ease at which Randori can scale to large applications. It will also begin to become clearer how Randori strives for separation of concerns in the application code and workflow.
 
-1. Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ.
 
 2. Open the index.html file
 
@@ -13,17 +13,19 @@ In this lesson, you will begin to work with the dependency and view injection co
 
 4. Save the HTML and return to your MessageWindow class.
 
-5. Above the constructor, add a public variable named title of type JQuery. Decorate it with a [View] 
+5. Above the constructor, but still in the class, add a public variable named title of type JQuery. Decorate it with a [View] 
    metadata.
 
      [View]
      public var title:JQuery;
 
-   This is a Randori view injection. Using this metadata, we are requesting that Randori provide us with a 
-   reference to an element of the view with the id of title. The name of the variable must match the id of the 
-   HTML node you wish to be injected here exactly. Further, this element must be within the Dom Fragment 
-   managed by the MessageWindow class, meaning that Randori will only look for this id in children of the div 
-   with our MessageWindow behavior declared upon it.
+The code completion features of IntelliJ should add the import line for you, but in case it doesn’t, be sure to add 
+
+import randori.jquery.JQuery;
+
+below the line which imports AbstractBehavior at the top of the class.
+
+This is a Randori view injection. Using this metadata, we are requesting that Randori provide us with a reference to an element of the view with the id of title. The name of the variable must match the id of the HTML node you wish to be injected here exactly. Further, this element must be within the Dom Fragment managed by the MessageWindow class, meaning that Randori will only look for this id in children of the div with our MessageWindow behavior declared upon it.
 
    When this element is found, Randori will do three things. First, it will wrap this element in jQuery. This 
    is simply a do not repeat yourself sort of concept. Randori will wrap the node once in jQuery rather than 
