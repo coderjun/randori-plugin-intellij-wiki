@@ -12,7 +12,9 @@ This latter step is not strictly necessary, but rather a convenience allowing yo
 **5)** Inside of the Body of the file, add a div. Inside of the div, add the text Simple Test as shown in the following code. Save the file.
 
 ``<body>``
+
 ``    <div>Simple Test</div>``
+
 ``</body>``
 
 As you will see shortly, Randori uses ids as object identifiers.
