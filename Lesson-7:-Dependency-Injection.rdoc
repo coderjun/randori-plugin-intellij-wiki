@@ -58,6 +58,7 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
     MessageGenerator.js and Message.js
 
 11. Examine the newMessage() method. 
+    
     You will see that the code instantiates a messages.Message() object and sets the initial properties as 
     your code indicated.
 
