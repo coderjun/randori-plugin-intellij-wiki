@@ -64,7 +64,7 @@ In this lesson, you will continue to use Randori Guice, a Randori specific port 
     underneath the node where the context is applied. The order of context versus mediator in the selector 
     does not matter.
 
-12. Save, rebuild and run your application.
+12. ((*[NOTE, an error in SDK versions 0.2.1 and below will cause this to fail. This will be fixed as of version 0.2.2]*)) Save, rebuild and run your application.
 
     This time you will see the message is derived from your BoringMessageGenerator as you have told Guice to 
     use that version instead.
