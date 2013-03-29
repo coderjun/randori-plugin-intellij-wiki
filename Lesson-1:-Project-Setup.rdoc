@@ -36,4 +36,4 @@ Using Randori for ActionScript requires IntelliJ IDEA, the Randori Plugin and SD
 
 7. You should now see the SDK listed underneath the project name and location.
 
-You now have a new project that has been properly configured with the Randori SDK. In the next section you will begin adding HTML, CSS and ActionScript to the project.
+You now have a new project that has been properly configured with the Randori SDK. In the next section you will begin {adding HTML, CSS and ActionScript to the project}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-2:-Creating-an-Initial-HTML-file-&-Run-Configuration].
