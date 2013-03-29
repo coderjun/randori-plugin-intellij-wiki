@@ -25,8 +25,7 @@ Using Randori for ActionScript requires IntelliJ IDEA version 12, the Randori Pl
    http://randoriframework.com/wp-content/uploads/2013/03/lesson1-1.png
 
 5. Setting up the project for the first time will require multiple steps. To save yourself some debugging, do 
-   not press Finish until the end of step
-6. On the left side of the screen, choose Randori Module as the project 
+   not press Finish until the end of step 6. On the left side of the screen, choose Randori Module as the project 
    type (listed under the "other" category). On the right side, name your project SimpleTest and choose a location on your drive to store the 
    associated files and assets.
 
