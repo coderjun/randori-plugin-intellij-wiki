@@ -27,7 +27,7 @@ Using Randori for ActionScript requires IntelliJ IDEA, the Randori Plugin and SD
    type. On the right side, name your project SimpleTest and choose a location on your drive to store the 
    associated files and assets.
 
-http://randoriframework.com/wp-content/uploads/2013/03/lesson1-2.png
+   http://randoriframework.com/wp-content/uploads/2013/03/lesson1-2.png
 
 6. Next, under Project SDK on the right side of the screen, click New… and browse to the location where the 
    RandoriSDK was extracted on your drive. It’s now safe to click Finish.
