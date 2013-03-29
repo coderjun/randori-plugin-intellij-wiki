@@ -1,0 +1,72 @@
+In this lesson, you will begin to work with the dependency and view injection concepts of Randori. These concepts are the key to Randori’s dynamic loading approach and to the ease at which Randori can scale to large applications. It will also begin to become clearer how Randori strives for separation of concerns in the application code and workflow.
+
+1) Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+
+2) Open the index.html file
+
+3) Change your div for message window to have two div children with id’s title and message as follows:
+
+  <div data-behavior="behaviors.MessageWindow">
+    <div id="title">Simple Test</div>
+    <div id="message">My Message</div>
+  </div>
+
+4) Save the HTML and return to your MessageWindow class.
+
+5) Above the constructor, add a public variable named title of type JQuery. Decorate it with a [View] metadata.
+
+  [View]
+  public var title:JQuery;
+
+This is a Randori view injection. Using this metadata, we are requesting that Randori provide us with a reference to an element of the view with the id of title. The name of the variable must match the id of the HTML node you wish to be injected here exactly. Further, this element must be within the Dom Fragment managed by the MessageWindow class, meaning that Randori will only look for this id in children of the div with our MessageWindow behavior declared upon it.
+
+When this element is found, Randori will do three things. First, it will wrap this element in jQuery. This is simply a do not repeat yourself sort of concept. Randori will wrap the node once in jQuery rather than having the developer do so again and again throughout the code. 
+
+Second, Randori will remove the id attribute of this element. In any sufficiently large system it becomes impossible to ensure that ids are not repeated. Randori deals with this by removing the ids but providing you a reference so that you can always reference the node. In this way, the elements with ids make up a sort of public interface to your HTML
+
+Third, Randori will assign the jQuery wrapped node to the public variable decorated with the [View] attribute. The end result is that you have asked for access to an HTML element and received it.
+
+By default, any item requested in this way is assumed to be required and Randori will throw an error if the element is not found. This is extraordinarily helpful when debugging. However, there are times that an element may be optional, in that case you could provide the required attributed of the metadata:
+
+  [View(required="false")]
+  public var title:JQuery;
+
+6) Next create another variable beneath the title for the message. Your code should now look like this:
+  
+  [View]
+  public var title:JQuery;
+  
+  [View]
+  public var message:JQuery;
+
+Unfortunately your onRegister method currently changes all the HTML of this view, so let’s address that next.
+
+7) Delete the contents of your on register method and replace it with the following code:
+    
+  override protected function onRegister():void {
+    title.html("This is my title");
+    message.html("This is my message");
+  }
+
+8) Save your class and then navigate to Build->Build Randori.
+
+9) Click the green play button and you will see your behavior managing a dom fragment and gaining access to specific element within its scope.
+
+10) Close your browser and return to IntelliJ
+
+11) Add a new public method to your MessageWindow behavior:
+
+  public function showMessage( newTitle:String, newMessage:String ) {
+
+  }
+
+12) Inside of this method set the title and message html to the strings passed into the method:
+    
+  public function showMessage( newTitle:String, newMessage:String ) {
+    title.html( newTitle );
+    message.html( newMessage );
+  }
+
+This public method will be used later to update the message window from other areas of the application.
+
+In the next lesson you will create a mediator to manage the index and interact with this behavior.
