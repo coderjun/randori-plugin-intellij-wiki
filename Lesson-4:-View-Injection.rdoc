@@ -71,12 +71,12 @@ In this lesson, you will begin to work with the dependency and view injection co
 
 11. Add a new public method to your MessageWindow behavior:
 
-      public function showMessage( newTitle:String, newMessage:String ) {
+      public function showMessage( newTitle:String, newMessage:String ):void {
       }
 
 12. Inside of this method set the title and message html to the strings passed into the method:
     
-      public function showMessage( newTitle:String, newMessage:String ) {
+      public function showMessage( newTitle:String, newMessage:String ):void {
         title.html( newTitle );
         message.html( newMessage );
       }
