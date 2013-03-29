@@ -15,26 +15,24 @@ In this lesson, you will begin to work with the dependency and view injection co
 
 5. Above the constructor, but still in the class, add a public variable named title of type JQuery. Decorate it with a [View] metadata.
 
-     [View]
-     public var title:JQuery;
+    [View]
+    public var title:JQuery;
 
-The code completion features of IntelliJ should add the import line for you, but in case it doesn’t, be sure to add 
+   The code completion features of IntelliJ should add the import line for you, but in case it doesn't, be sure to add this import at the top of the class, just below the line which imports AbstractBehavior at the top of the class.
 
-     import randori.jquery.JQuery;
+    import randori.jquery.JQuery;
 
-below the line which imports AbstractBehavior at the top of the class.
+   This is a Randori view injection. Using this metadata, you are requesting that Randori provide us with a reference to an element of the view with the id of title. The name of the variable must exactly match the id of the HTML node you wish to be injected here (including case). Further, this element must be within the DOM Fragment managed by the MessageWindow class, meaning that Randori will only look for this id in children of the div with your MessageWindow behavior declared upon it.
 
-This is a Randori view injection. Using this metadata, you are requesting that Randori provide us with a reference to an element of the view with the id of title. The name of the variable must exactly match the id of the HTML node you wish to be injected here (including case). Further, this element must be within the DOM Fragment managed by the MessageWindow class, meaning that Randori will only look for this id in children of the div with your MessageWindow behavior declared upon it.
+   When this element is found, Randori will do three things. First, it will wrap this element in jQuery. This is simply a do not repeat yourself sort of concept, in that Randori will wrap the node once in jQuery rather than having the developer do so again and again throughout the code. 
 
-When this element is found, Randori will do three things. First, it will wrap this element in jQuery. This is simply a do not repeat yourself sort of concept, in that Randori will wrap the node once in jQuery rather than having the developer do so again and again throughout the code. 
+   Second, Randori will remove the id attribute of this element. In any sufficiently large system it becomes impossible to ensure that ids are not repeated. Randori deals with this by removing the ids but providing you a reference so that you can always reference the node. In this way, the elements with ids make up a sort of public interface to your HTML
 
-Second, Randori will remove the id attribute of this element. In any sufficiently large system it becomes impossible to ensure that ids are not repeated. Randori deals with this by removing the ids but providing you a reference so that you can always reference the node. In this way, the elements with ids make up a sort of public interface to your HTML
+   Third, Randori will assign the jQuery wrapped node to the public variable decorated with the [View] attribute. The end result is that you have asked for access to an HTML element and have received it.
 
-Third, Randori will assign the jQuery wrapped node to the public variable decorated with the [View] attribute. The end result is that you have asked for access to an HTML element and have received it.
+   By default, any item requested in this way is assumed to be required and Randori will throw an error if the element is not found. This is extraordinarily helpful when debugging. However, there are times that an element may be optional, in that case you would provide the required attribute of the metadata:
 
-By default, any item requested in this way is assumed to be required and Randori will throw an error if the element is not found. This is extraordinarily helpful when debugging. However, there are times that an element may be optional, in that case you would provide the required attribute of the metadata:
-
-     [View(required="false")]
+    [View(required="false")]
      public var title:JQuery;
 
 6. Next create another variable beneath the title for the message. Your code should now look like this:
