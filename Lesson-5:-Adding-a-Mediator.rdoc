@@ -1,6 +1,6 @@
 In this lesson, you will add a mediator to the project. A mediator’s job is to mediate between various other objects that compose a view in a Randori project. Mediators should not contain business logic nor directly manipulate the DOM. Rather, their job is to communicate with behaviors, business logic, services and respond to events raised by user input.
 
-1. Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ.
 
 2. Open the index.html file.
 
@@ -32,20 +32,20 @@ In this lesson, you will add a mediator to the project. A mediator’s job is to
    mediator is requesting that Randori find an element with the id of messageWindow in the DOM fragment that 
    this will soon be managed by this mediator and to inject a reference to that DOM element here. 
 
-   However, if you recall, we discussed that the goal of behaviors was to decorate DOM elements and provide an 
-   API. We currently have a behavior defined on the div with an id of messageWindow. That behavior indicates 
-   that it should be decorated by MessageWindow. Therefore, instead of receiving a DOM fragment in our 
-   mediator, Randori is going to inject a reference to the MessageWindow instance that managed that dom 
+   However, if you recall, you earlier learned  that the goal of behaviors was to decorate DOM elements and provide an 
+   API. You currently have a behavior defined on the div with an id of messageWindow. That behavior indicates 
+   that it should be decorated by MessageWindow. Therefore, instead of receiving a DOM fragment in the
+   mediator, Randori is going to inject a reference to the MessageWindow instance that managed that DOM
    fragment. Meaning that you won’t be dealing with the DOM directly but rather with an instance of the class 
    you wrote.
 
-8. Override the protected onRegister() method of the mediator:
+8.  Notice that the class created already has an override the protected onRegister() method of the mediator:
 
      override protected function onRegister():void {
 
      }
 
-   Mediators are a type of behavior and also have an onRegister() method. Not, a word on timing. Randori 
+   Mediators are a type of behavior and also have an onRegister() method. Now a word on timing. Randori 
    ensures that behaviors in children are resolved and registered before parent behaviors. The means that by 
    the time the onRegister() method of the mediator is invoked, the onRegister() methods of any behaviors 
    under the mediator will have already executed. This is true recursively, meaning that regardless of how 
@@ -71,20 +71,19 @@ In this lesson, you will add a mediator to the project. A mediator’s job is to
 
     Randori will now instantiate mediators.IndexMediator and assign it a reference to the body. All behaviors 
     and mediators work this way inside of Randori. The mediator/behavior knows about the DOM node it is   
-    supposed to manage, however, the DOM node unaware of (does not contain a reference to) the behavior.
+    supposed to manage, however, the DOM node remains unaware of (does not contain a reference to) the behavior.
 
 12. Save your files and build Randori
 
 13. Green the green play button to launch the application. 
 
     If everything worked properly, you will now see Brand new Title and My Mediator is Ready on the screen. 
-    Your mediator is now interacting with your behavior but directly as objects that can act upon the DOM 
-    instead of being part of the DOM. This is the key to the way Randori works and builds.
+    Your mediator is now interacting with your behavior instead of on the DOM directly.  It is important to not that the mediator can call methods on a behavior which will interact with the DOM. This is the key to the way Randori works and builds.
 
     Note that, other than the data attributes, you are not modifying the HTML in any way. When using Randori 
-    this is crucial as we are trying to leave the HTML in a format that easily maintained by an HTML/CSS 
+    this is crucial as the framework is designed to leave the HTML in a format that easily maintained by an HTML/CSS 
     developer in the tool of their choice.
 
-    We consider it a failure if the HTML dev needs to Randori framework, plugin or code to do their job.
+    The framework developers consider it a failure if the HTML dev needs to use the Randori framework, plugin or code to do their job.
 
 In the next lesson, you will see an alternate way to {assign behaviors and mediators}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-6:-Managing-Randori-with-CSS] to objects that both provides a way to eliminate the data-* attributes from your code, but also begins to allow for a level of indirection that can provide for a customizable experience for your end users based on device or any other criteria.
