@@ -1,76 +1,92 @@
 In this lesson, you will continue to use Randori Guice, a Randori specific port of Google’s dependency injection framework. You will learn about how Guice makes the decision on what objects to inject, and how to vary that decision at any point in the application. You will also learn about the default context and scope modifiers.
 
-1) Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+1. Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
 
-2) Open and examine your IndexMediator class. 
+2. Open and examine your IndexMediator class. 
 
-As you may remember, the constructor accepts a MessageGenerator instance. This instance is built by Guice when it is needed. By default, Guice will build any object by recursively examining the object’s definition and loading any dependencies that are needed. 
+   As you may remember, the constructor accepts a MessageGenerator instance. This instance is built by Guice 
+   when it is needed. By default, Guice will build any object by recursively examining the object’s definition 
+   and loading any dependencies that are needed. 
 
-As was the case with IndexMediator, Guice determined that MessageGenerator was required first, and hence loaded it and instantiated it in order to finish the creation of the IndexMediator. There is no limit to the depth of dependencies.
+   As was the case with IndexMediator, Guice determined that MessageGenerator was required first, and hence 
+   loaded it and instantiated it in order to finish the creation of the IndexMediator. There is no limit to 
+   the depth of dependencies.
 
-However, you can modify the default way in which Guice chooses to build a dependency. That modification is done via a special type of object called a context which extends an object called GuiceModule.
+   However, you can modify the default way in which Guice chooses to build a dependency. That modification is 
+   done via a special type of object called a context which extends an object called GuiceModule.
 
-3) Right click on the messages package, choose New->Randori Class. Name this class BoringMessageGenerator.
+3. Right click on the messages package, choose New->Randori Class. Name this class BoringMessageGenerator.
 
-4) Alter this class so that it extends from MessageGenerator
+4. Alter this class so that it extends from MessageGenerator
 
-5) Inside of BoringMessageGenerator, override the newMessage() method as show below:
+5. Inside of BoringMessageGenerator, override the newMessage() method as show below:
 
-  override public function newMessage():Message {
-    return new Message("Boring Message", "Yawn" );
-  }
+     override public function newMessage():Message {
+       return new Message("Boring Message", "Yawn" );
+     }
 
-Now, you have a BoringMessageGenerator. You want to use this generator in place of the original MessageGenerator. You will do so using a context.
+   Now, you have a BoringMessageGenerator. You want to use this generator in place of the original  
+   MessageGenerator. You will do so using a context.
 
-6) Create a new package under src called contexts.
+6. Create a new package under src called contexts.
 
-7) Right click on the contexts package, New->Randori Context. Name the class BoringContext
+7. Right click on the contexts package, New->Randori Context. Name the class BoringContext
 
-8) Override the configure() method of the GuiceModule class as shown below:
+8. Override the configure() method of the GuiceModule class as shown below:
 
-  override public function configure(binder:Binder):void {
-  }
+     override public function configure(binder:Binder):void {
+     }
 
-The Binder instance passed to this method keeps track of the rules Guice uses to inject various dependencies. You will start by asking Guice to make a substitution.
+   The Binder instance passed to this method keeps track of the rules Guice uses to inject various 
+   dependencies. You will start by asking Guice to make a substitution.
 
-9) Inside this method, call the bind() method of the Binder instance, passing it the MessageGenerator class. 
-Call the to() method on the returned object and pass it the BoringMessageGenerator as show below.
+9. Inside this method, call the bind() method of the Binder instance, passing it the MessageGenerator class. 
+   Call the to() method on the returned object and pass it the BoringMessageGenerator as show below.
 
-  override public function configure(binder:Binder):void {
-    binder.bind(MessageGenerator).to(BoringMessageGenerator);
-  }
+     override public function configure(binder:Binder):void {
+       binder.bind(MessageGenerator).to(BoringMessageGenerator);
+     }
 
-This asks Guice to substitute the BoringMessageGenerator for the original MessageGenerator anywhere it is requested. Next you will need to instruct Randori Guice to use this context in your application.
+   This asks Guice to substitute the BoringMessageGenerator for the original MessageGenerator anywhere it is   
+   requested. Next you will need to instruct Randori Guice to use this context in your application.
 
-10) Open the behaviors.css file from the assets folder.
+10. Open the behaviors.css file from the assets folder.
 
-11) Modify the simpleApp class selector with the following code:
+11. Modify the simpleApp class selector with the following code:
 
-  .simpleApp {
-    -randori-context: "contexts.BoringContext";
-    -randori-mediator: "mediators.IndexMediator";
-  }
+      .simpleApp {
+        -randori-context: "contexts.BoringContext";
+        -randori-mediator: "mediators.IndexMediator";
+      }
 
-This tells Randori that, at the point where it finds the simpleApp class, you wish to begin using a new Context called BoringContext. Contexts can be defined anywhere in the DOM and apply to all nodes underneath the node where the context is applied. The order of context versus mediator in the selector does not matter.
+    This tells Randori that, at the point where it finds the simpleApp class, you wish to begin using a new 
+    Context called BoringContext. Contexts can be defined anywhere in the DOM and apply to all nodes 
+    underneath the node where the context is applied. The order of context versus mediator in the selector 
+    does not matter.
 
-12) Save, rebuild and run your application.
+12. Save, rebuild and run your application.
 
-This time you will see the message is derived from your BoringMessageGenerator as you have told Guice to use that version instead.
+    This time you will see the message is derived from your BoringMessageGenerator as you have told Guice to 
+    use that version instead.
 
-There are other things you can do with the binder, for example:
+    There are other things you can do with the binder, for example:
 
-  binder.bind(MessageGenerator).inScope(Scope.Singleton).to(MessageGenerator);
+      binder.bind(MessageGenerator).inScope(Scope.Singleton).to(MessageGenerator);
 
-This tells Randori Guice to always inject the same copy of MessageGenerator, effectively making it a singleton.
+    This tells Randori Guice to always inject the same copy of MessageGenerator, effectively making it a 
+    singleton.
 
-  var mySpeciallyConfiguredMessage:MessageGenerator = new MessageGenerator();
-  binder.bind(MessageGenerator).toInstance(mySpeciallyConfiguredMessage);
+      var mySpeciallyConfiguredMessage:MessageGenerator = new MessageGenerator();
+      binder.bind(MessageGenerator).toInstance(mySpeciallyConfiguredMessage);
 
-This version tells Randori Guice to always inject your super special instance everywhere rather than create one on its own. There are other more complicated use cases that will be explored later.
+    This version tells Randori Guice to always inject your super special instance everywhere rather than 
+    create one on its own. There are other more complicated use cases that will be explored later.
 
-This work with contexts provides for two interesting points, first, your application can have as many contexts as you wish. Each manages the node and children of the node to which it is applied. 
+    This work with contexts provides for two interesting points, first, your application can have as many 
+    contexts as you wish. Each manages the node and children of the node to which it is applied. 
 
-Second, contexts interact with each other. For example, Randori has a default context that it uses for any Randori application. It looks like this:
+    Second, contexts interact with each other. For example, Randori has a default context that it uses for any    
+    Randori application. It looks like this:
 
   override public function configure(binder:Binder):void {
     //make the StyleExtensionMap a Singleton
