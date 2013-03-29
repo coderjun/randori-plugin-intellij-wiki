@@ -56,8 +56,8 @@ In this lesson, you will use CSS to eliminate the data-* attributes in your code
         <div id="message">My Message</div>
       </div>
 
-   Using CSS in this manner makes it extraordinarily easy for your team to create a set of commonly used CSS 
-   behaviors to your application and then vary those behaviors in an application wide manner.
+    Using CSS in this manner makes it extraordinarily easy for your team to create a set of commonly used CSS 
+    behaviors to your application and then vary those behaviors in an application wide manner.
 
 13. Save, build and run your application.
 
