@@ -108,26 +108,30 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
     used in a typed way, however, at runtime, we incur no penalty for this as the compiler will simply 
     instantiate, pass and use a generic object instead.
 
-9) Save the MessageGenerator class. Perform a build and _clean_ of this code so we can examine it next.
+15. Save the MessageGenerator class. Perform a build and _clean_ of this code so we can examine it next.
 
-10) Open the MessageGenerator.js file from the generated/messages folder. You may also note that the Message.js file is no longer present in this folder.
+16. Open the MessageGenerator.js file from the generated/messages folder. You may also note that the 
+    Message.js file is no longer present in this folder.
 
-11) Examine the newMessage() method. 
+17. Examine the newMessage() method. 
 
-You will see that the code no longer instantiates a messages.Message() object. Instead it uses a generic object for this purpose and sets the initial values as your code indicated.
+    You will see that the code no longer instantiates a messages.Message() object. Instead it uses a generic 
+    object for this purpose and sets the initial values as your code indicated.
 
-12) Next, Examine the getClassDependencies() method.
+18. Next, Examine the getClassDependencies() method.
 
-You will note that it is no longer dependent upon the message.Message object.
+    You will note that it is no longer dependent upon the message.Message object.
 
-13) Close the js files and open your IndexMediator.
+19. Close the js files and open your IndexMediator.
 
-14) In the constructor of your IndexMediator, indicate that you require a MessageGenerator instance to instantiate this class.
+20. In the constructor of your IndexMediator, indicate that you require a MessageGenerator instance to 
+    instantiate this class.
 
-  public function IndexMediator( messageGenerator:MessageGenerator ) {
-  }
+      public function IndexMediator( messageGenerator:MessageGenerator ) {
+      }
 
-As the entirety of class building in Randori is built on dependency injection, we generally specify the classes we require rather than instantiate them and allow Randori to provide these classes.
+    As the entirety of class building in Randori is built on dependency injection, we generally specify the    
+    classes we require rather than instantiate them and allow Randori to provide these classes.
 
 15) Create a private variable in the class to hold this instance and assign it in the constructor.
 
