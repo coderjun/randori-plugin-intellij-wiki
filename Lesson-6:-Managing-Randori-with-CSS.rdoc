@@ -1,0 +1,59 @@
+In this lesson, you will use CSS to eliminate the data-* attributes in your code, allowing for a cleaner experience with HTML developers, promoting a simpler syntax for reuse, and allowing for a level of indirection in the behavior choices for Randori.
+
+1) Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+
+2) Right click on the SimpleTest project and create a new Directory named assets
+
+3) Right click on the assets folder and create a new file. Name the file behaviors.css
+
+4) Inside of behaviors.css add class selector for simpleApp
+
+  .simpleApp {
+  }
+
+5) Inside of the selector, add a style for –randori-mediator: mediators.IndexMediator;
+
+  .simpleApp {
+    -randori-mediator: "mediators.IndexMediator";
+  }
+
+Randori defines a sort of vendor extension that is used to define behaviors. It is possible to mix these with real regular CSS style sheets, but in our experience keeping them separate in a sort of Behavior Style Sheet is a better practice.
+
+In this case you are indicating that anything with the class simpleApp will also get a mediator named IndexMediator.
+
+6) Next, add a new selector named messageWindow. Inside of the selector, add a style for –randori-behavior: behaviors.MessageWindow;
+
+  .messageWindow {
+    -randori-behavior: "behaviors.MessageWindow";
+  }
+
+7) Save your style sheet and return to the index.html
+
+8) Inside the head of your html page, before your script tags, add the following tag:
+
+  <link rel="stylesheet/randori" href="assets/behaviors.css" type="text/css"/>
+
+Not the following things. This is not declared as a regular stylesheet, but rather as a stylesheet/randori, this is what allows us to capture this element and parse our vendor extension aspects out before we return control of the style sheet to the browser.
+
+9) Find the body tag and remove the data-mediator="mediators.IndexMediator"
+
+10) Add a class attribute to the body and specify simpleApp
+
+  <body class="simpleApp">
+
+11) Next, find the messageWindow div and remove the data-behavior="behaviors.MessageWindow"
+
+12) Add a class attribute to this div and specify a class of messageWindow
+    
+  <div id="messageWindow" class="messageWindow">
+    <div id="title">Simple Test</div>
+    <div id="message">My Message</div>
+  </div>
+
+Using CSS in this manner makes it extraordinarily easy for your team to create a set of commonly used CSS behaviors to your application and then vary those behaviors in an application wide manner.
+
+13) Save, build and run your application.
+
+Everything should work as before, but now working from the CSS defined mediator and behaviors.
+
+In the next lesson, you will learn about Randori’s dependency injection framework (Guice) as you build and inject objects into your mediators.
