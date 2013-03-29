@@ -84,7 +84,7 @@ By default, any item requested in this way is assumed to be required and Randori
 Save and run, and you can see the new title and messages.  Be sure to delete the contents of this method when you are done, as this information will be put into another class in the next lesson.
 
     override protected function onRegister():void {
-        showMessage("Title Goes Here", "Message Goes Here");
+
     }
 
 In the next lesson you will {create a mediator to manage the index and interact with this behavior}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-5:-Adding-a-Mediator].
