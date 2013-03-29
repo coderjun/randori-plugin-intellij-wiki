@@ -1,4 +1,4 @@
-Using Randori for ActionScript requires IntelliJ IDEA, the Randori Plugin and SDK. The goal of this lesson is to get the Randori environment properly configured in IntelliJ IDEA.
+Using Randori for ActionScript requires IntelliJ IDEA version 12, the Randori Plugin and SDK. The goal of this lesson is to get the Randori environment properly configured in IntelliJ IDEA.
 
 <b>The Randori plugin will _NOT_ work in the community edition of IntelliJ IDEA.</b>
 
