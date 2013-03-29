@@ -88,8 +88,8 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
         }
       }
 
-   This piece of metadata is always implied to be over any class compiled by Randori. However, you can also    
-   customize the attributes of it to instruct the compiler to treat this class in a different way.
+    This piece of metadata is always implied to be over any class compiled by Randori. However, you can also    
+    customize the attributes of it to instruct the compiler to treat this class in a different way.
 
 14) Set three attributes in the metadata. export="false",name="Object",mode="json" as follows:
 
