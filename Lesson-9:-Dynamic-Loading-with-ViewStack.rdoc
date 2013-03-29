@@ -70,7 +70,7 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
 
     You are requesting that the ViewStack behavior defined in your HTML file be injected here.
 
-11. In your onRegister() method, below the existing code, add a click handler to the loadMore input using 
+13. In your onRegister() method, below the existing code, add a click handler to the loadMore input using 
     JQuery.
 
       loadMore.click( handleLoadMore );
@@ -79,12 +79,12 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
     numerically but we will provide a superior naming convention shortly. ActionScript does not have method 
     overloading and this is exactly the use case where it is needed.
 
-12. Create a new private handleLoadMore() method which takes an event of type randori.jquery.Event as follows:
+14. Create a new private handleLoadMore() method which takes an event of type randori.jquery.Event as follows:
 
       private function handleLoadMore( event:Event ):void {
       }
 
-13. This provides an excellent opportunity to talk about cleanup. Just below your onRegister() method, 
+15. This provides an excellent opportunity to talk about cleanup. Just below your onRegister() method, 
     override a protected function named onDeregister().
   
       override protected function onDeregister():void {
@@ -94,29 +94,36 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
     removed from the DOM. You are expected to clean up your own mess in this method. The onDeregister() of a 
     parent is called just before the onDeregister() of child behaviors.
 
-14) Inside the onDeregister() method, cleanup the event listener on the loadMore input:
+16. Inside the onDeregister() method, cleanup the event listener on the loadMore input:
 
-  override protected function onDeregister():void {
-    loadMore.off("click");
-  }
+      override protected function onDeregister():void {
+        loadMore.off("click");
+      }
 
-15) Inside of the handleLoadMore() method, you will call the pushView() method of the ViewStack instance and pass the url to the people.html file.
+17. Inside of the handleLoadMore() method, you will call the pushView() method of the ViewStack instance and 
+    pass the url to the people.html file.
 
-  private function handleLoadMore( event:Event ):void {
-    myViewStack.pushView("views/people.html")
-  }
+      private function handleLoadMore( event:Event ):void {
+        myViewStack.pushView("views/people.html")
+      }
 
-The ViewStack works by pushing and popping views. When a view is pushed, the view is loaded and Randori does all the work to instantiate the view. Loading a view is an asynchronous operation and you may need a way to respond after the operation completes. To that end, Randori provides a Promises/A+ compliant implementation which is used for asynchronous operations.
+    The ViewStack works by pushing and popping views. When a view is pushed, the view is loaded and Randori 
+    does all the work to instantiate the view. Loading a view is an asynchronous operation and you may need a 
+    way to respond after the operation completes. To that end, Randori provides a Promises/A+ compliant 
+    implementation which is used for asynchronous operations.
 
-16) Assign the result of calling pushView() to a new variable of type Promise from the RANDORI library. 
+18. Assign the result of calling pushView() to a new variable of type Promise from the RANDORI library. 
  
-  private function handleLoadMore( event:Event ):void {
-    var promise:Promise = myViewStack.pushView("views/people.html")
-  }
+      private function handleLoadMore( event:Event ):void {
+        var promise:Promise = myViewStack.pushView("views/people.html")
+      }
 
-Be cautious with this step. As is often the case, there are multiple Promises implementations using the same name but in different packages. For example, JQuery also provides a promises implementation; however, it is not necessarily compliant. Ensure you use the one from the Randori package.
+    Be cautious with this step. As is often the case, there are multiple Promises implementations using the 
+    same name but in different packages. For example, JQuery also provides a promises implementation; however, 
+    it is not necessarily compliant. Ensure you use the one from the Randori package.
 
-17) Use the then() method of the promise to log something to the console when the view is resolved as shown below.
+19. Use the then() method of the promise to log something to the console when the view is resolved as shown 
+    below.
 
   private function handleLoadMore( event:Event ):void {
     var promise:Promise = myViewStack.pushView("views/people.html");
