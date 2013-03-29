@@ -192,4 +192,4 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
     will see later, you can customize this behavior to decide which files should be left dynamic, and which 
     loaded initially.
 
-The next lesson will dive further into injection by covering contexts, which governs how injection rules are applied occurs and the subsequent lesson will explain how we ask Randori to ‘do something’ again by dynamically loading more content.
+The next lesson will dive further into injection by covering {contexts}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-8:-Contexts], which governs how injection rules are applied occurs and the subsequent lesson will explain how we ask Randori to ‘do something’ again by dynamically loading more content.
