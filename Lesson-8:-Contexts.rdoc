@@ -114,3 +114,5 @@ In this lesson, you will continue to use Randori Guice, a Randori specific port 
     do not need to redefine rules in lower contexts to have them available.
 
 As a last point, a context can be placed on any node, not just the body.
+
+In the next lesson we will look more into Randori helper components with the {Randori ViewStack}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-9:-Dynamic-Loading-with-ViewStack].
