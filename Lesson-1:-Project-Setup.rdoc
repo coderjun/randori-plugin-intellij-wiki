@@ -2,6 +2,8 @@ Using Randori for ActionScript requires IntelliJ IDEA version 12, the Randori Pl
 
 <b>The Randori plugin will _NOT_ work in the community edition of IntelliJ IDEA.</b>
 
+<i>Currently the Randori plugin is a beta release, so please bear in mind that things are not fully stable, nor feature complete, yet.</i>
+
 1. Download the Randori SDK from https://github.com/RandoriAS/randori-sdk/archive/v0.2.1.zip and save it on 
    your drive in a known location. 
 
