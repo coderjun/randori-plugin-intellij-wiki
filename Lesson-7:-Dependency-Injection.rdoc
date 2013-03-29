@@ -1,43 +1,46 @@
 In this lesson, you will use Randori Guice, a Randori specific port of Google’s dependency injection framework to inject objects into your mediator. You will see how Randori will recursively resolve dependencies on your behalf and understand the ease at which this allows your application to scale.
 
-1) Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+1. Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
 
-2) Right click on the src package and make a new package called messages.
+2. Right click on the src package and make a new package called messages.
 
-3) Right click on the messages package and create a new Randori class named Message
+3. Right click on the messages package and create a new Randori class named Message
 
-4) Add two public variables to the Message class. The first being title of type String, and the second being message of type String as follows:
+4. Add two public variables to the Message class. The first being title of type String, and the second being 
+   message of type String as follows:
 
-  public class Message {
-    public var title:String;
-    public var message:String;
+     public class Message {
+       public var title:String;
+       public var message:String;
 
-    public function Message() {
-    }
-  }
+       public function Message() {
+       }
+     }
 
-5) Next build modify the constructor for Message to define a title and a message as parameters and assign them to the instance variables.
+5. Next build modify the constructor for Message to define a title and a message as parameters and assign them 
+   to the instance variables.
 
-  public class Message {
-    public var title:String;
-    public var message:String;
+     public class Message {
+       public var title:String;
+       public var message:String;
 
-    public function Message( title:String, message:String ) {
-        this.title = title;
-        this.message = message;
-    }
-  }
+       public function Message( title:String, message:String ) {
+         this.title = title;
+         this.message = message;
+       }
+     }
 
-This is going to be a value object used to contain a Message as it is passed around the application.
+   This is going to be a value object used to contain a Message as it is passed around the application.
 
-6) Save your file and switch to the MessageGenerator class.
-This class is a simple factory for making Messages.
+6. Save your file and switch to the MessageGenerator class.
+   This class is a simple factory for making Messages.
 
-7) Inside of the MessageGenerator class, create a new method named newMessage() which accepts no arguments but returns a Message.
+7. Inside of the MessageGenerator class, create a new method named newMessage() which accepts no arguments but 
+   returns a Message.
 
-  public function newMessage():Message {
+     public function newMessage():Message {
 
-  }
+     }
 
 8) Inside of the newMessage() method, create a message object with a title and a message. You could make this static or use a date, as I do in the following code to make it clearly dynamic on the screen.
 
