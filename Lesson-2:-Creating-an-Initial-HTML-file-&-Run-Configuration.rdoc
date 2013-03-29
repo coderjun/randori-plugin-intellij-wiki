@@ -1,5 +1,5 @@
 In this lesson, you will create a basic HTML file to serve as the root of your project. You will also create a Run Configuration which will allow the Randori Plugin to launch a development web server on your behalf. 
-This latter step is not strictly necessary, but rather a convenience allowing you to quickly debug multiple projects. If you have a web server installed that you would rather use, you simply need to point the Document Root to the root of the project you just created.
+Setting up a development web server is not strictly necessary, but rather a convenience allowing you to quickly debug multiple projects. If you already have a web server installed that you would rather use, you simply need to point the Document Root to the root of the project you just created.
 
 1. Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
 
@@ -18,8 +18,7 @@ This latter step is not strictly necessary, but rather a convenience allowing yo
 
    As you will see shortly, Randori uses ids as object identifiers.
 
-6. Next, navigate to the Run menu and choose Run. You will be presented with a small dialog box asking you to 
-   Edit Configurations. Select Edit Configurations.
+6. Next, click Run from the Top menu, and choose Edit Configurations from the drop down.
 
    http://randoriframework.com/wp-content/uploads/2013/03/lesson2-1.png
 
