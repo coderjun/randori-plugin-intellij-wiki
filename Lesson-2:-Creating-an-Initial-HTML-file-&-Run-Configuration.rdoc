@@ -1,21 +1,22 @@
 In this lesson, you will create a basic HTML file to serve as the root of your project. You will also create a Run Configuration which will allow the Randori Plugin to launch a development web server on your behalf. 
 This latter step is not strictly necessary, but rather a convenience allowing you to quickly debug multiple projects. If you have a web server installed that you would rather use, you simply need to point the Document Root to the root of the project you just created.
 
-1) Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+1. Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
 
-2) Right click on SimpleTest
+2. Right click on SimpleTest
 
-3) Navigate to New->HTML File
+3. Navigate to New->HTML File
 
-4) Name the HTML file index.html and click OK. A very simple HTML file is created on your behalf.
+4. Name the HTML file index.html and click OK. A very simple HTML file is created on your behalf.
 
-5) Inside of the Body of the file, add a div. Inside of the div, add the text Simple Test as shown in the following code. Save the file.
+5. Inside of the Body of the file, add a div. Inside of the div, add the text Simple Test as shown in the 
+   following code. Save the file.
 
-  <body>
-    <div>Simple Test</div>
-  </body>
+     <body>
+       <div>Simple Test</div>
+     </body>
 
-As you will see shortly, Randori uses ids as object identifiers.
+   As you will see shortly, Randori uses ids as object identifiers.
 
 6) Next, navigate to the Run menu and choose Run. You will be presented with a small dialog box asking you to Edit Configurations. Select Edit Configurations.
 
