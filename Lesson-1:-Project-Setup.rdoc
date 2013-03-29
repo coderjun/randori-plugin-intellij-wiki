@@ -20,7 +20,7 @@ Using Randori for ActionScript requires IntelliJ IDEA, the Randori Plugin and SD
 
 4. Once the SDK is unzipped, return to IntelliJ. Click Create New Project.
 
-http://randoriframework.com/wp-content/uploads/2013/03/lesson1-1.png
+   http://randoriframework.com/wp-content/uploads/2013/03/lesson1-1.png
 
 5. Setting up the project for the first time will require multiple steps. To save yourself some debugging, do 
    not press Finish until we tell you. On the left side of the screen, choose Randori Module as the project 
@@ -32,7 +32,7 @@ http://randoriframework.com/wp-content/uploads/2013/03/lesson1-2.png
 6. Next, under Project SDK on the right side of the screen, click New… and browse to the location where the 
    RandoriSDK was extracted on your drive. It’s now safe to click Finish.
 
-http://randoriframework.com/wp-content/uploads/2013/03/lesson1-3.png
+   http://randoriframework.com/wp-content/uploads/2013/03/lesson1-3.png
 
 7. You should now see the SDK listed underneath the project name and location.
 
