@@ -1,0 +1,64 @@
+In this lesson, you will add a mediator to the project. A mediator’s job is to mediate between various other objects that compose a view in a Randori project. Mediators should not contain business logic nor directly manipulate the DOM. Rather, their job is to communicate with behaviors, business logic, services and respond to events raised by user input.
+
+1) Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+
+2) Open the index.html file.
+
+3) Find the div with the MessageWindow behavior assigned to it and add an id of messageWindow. Your code should look like the following:
+  
+  <div id="messageWindow" data-behavior="behaviors.MessageWindow">
+    <div id="title">Simple Test</div>
+    <div id="message">My Message</div>
+  </div>
+
+4) Save the html file.
+
+5) Right click on the src folder and add a new package named mediators
+
+6) Right click on the mediators package, add navigate to New -> Randori Mediator.  Name it IndexMediator
+
+This will be the mediator for your index.html. All Mediators extend from AbstractMediator. They are are a specialized form of behaviors but with a different purpose. The inheritance is IndexMediator -> AbstractMediator -> AbstractBehavior.
+
+7) Above the constructor for IndexMediator, you will add a new public variable named message of type MessageWindow. Add a [View] metadata above it.
+
+  [View]
+  public var messageWindow:MessageWindow;
+
+Just like in the MessageWindow behavior, this line of code requests a view injection for the Mediator. The mediator is requesting that Randori find an element with the id of messageWindow in the DOM fragment that this will soon be managed by this mediator and to inject a reference to that DOM element here. 
+
+However, if you recall, we discussed that the goal of behaviors was to decorate DOM elements and provide an API. We currently have a behavior defined on the div with an id of messageWindow. That behavior indicates that it should be decorated by MessageWindow. Therefore, instead of receiving a DOM fragment in our mediator, Randori is going to inject a reference to the MessageWindow instance that managed that dom fragment. Meaning that you won’t be dealing with the DOM directly but rather with an instance of the class you wrote.
+
+8) Override the protected onRegister() method of the mediator:
+
+  override protected function onRegister():void {
+  }
+
+Mediators are a type of behavior and also have an onRegister() method. Not, a word on timing. Randori ensures that behaviors in children are resolved and registered before parent behaviors. The means that by the time the onRegister() method of the mediator is invoked, the onRegister() methods of any behaviors under the mediator will have already executed. This is true recursively, meaning that regardless of how deeply behaviors are statically nested, the inner most behaviors will always resolve and register before the outer most.
+
+9) Inside the onRegister() method, invoke the showMessage() method of the MessageWindow instance passing it values for a title and message.
+
+  override protected function onRegister():void {
+    messageWindow.showMessage("Brand new Title", "My Mediator is Ready");
+  }
+
+Then the mediator registers it will now interact with the MessageWindow instance created to manage the DOM elements.
+
+10) Return to the index.html file and find the body tag.
+
+11) Modify the body tag to use the data-mediator attribute to specify that the mediators.IndexMediator will mediate this view.
+
+  <body data-mediator="mediators.IndexMediator">
+
+Randori will now instantiate mediators.IndexMediator and assign it a reference to the body. All behaviors and mediators work this way inside of Randori. The mediator/behavior knows about the DOM node it is supposed to manage, however, the DOM node unaware of (does not contain a reference to) the behavior.
+
+12) Save your files and build Randori
+
+13) Green the green play button to launch the application. 
+
+If everything worked properly, you will now see Brand new Title and My Mediator is Ready on the screen. Your mediator is now interacting with your behavior but directly as objects that can act upon the DOM instead of being part of the DOM. This is the key to the way Randori works and builds.
+
+Note that, other than the data attributes, you are not modifying the HTML in any way. When using Randori this is crucial as we are trying to leave the HTML in a format that easily maintained by an HTML/CSS developer in the tool of their choice.
+
+We consider it a failure if the HTML dev needs to Randori framework, plugin or code to do their job.
+
+In the next lesson, you will see an alternate way to assign behaviors and mediators to objects that both provides a way to eliminate the data-* attributes from your code, but also begins to allow for a level of indirection that can provide for a customizable experience for your end users based on device or any other criteria.
