@@ -45,4 +45,4 @@ This latter step is not strictly necessary, but rather a convenience allowing yo
 
     http://randoriframework.com/wp-content/uploads/2013/03/lesson2-5.png
 
-That completes the goals for this lesson and all project setup. In the next section, you will begin to add functionality to the application by using the Randori Bootstrapper, then adding behaviors.
+That completes the goals for this lesson and all project setup. In the next section, you will begin to add functionality to the application by using the {Randori Bootstrapper, then adding behaviors}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-3:-Bootstrap-&-Adding-a-Behavior].
