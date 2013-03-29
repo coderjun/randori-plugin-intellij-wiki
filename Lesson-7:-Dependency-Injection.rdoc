@@ -133,28 +133,29 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
     As the entirety of class building in Randori is built on dependency injection, we generally specify the    
     classes we require rather than instantiate them and allow Randori to provide these classes.
 
-15) Create a private variable in the class to hold this instance and assign it in the constructor.
+21. Create a private variable in the class to hold this instance and assign it in the constructor.
 
-  private var messageGenerator:MessageGenerator;
+      private var messageGenerator:MessageGenerator;
+      ...
+      public function IndexMediator( messageGenerator:MessageGenerator ) {
+        this.messageGenerator = messageGenerator;
+      }
 
-  ...
+22. Change your on register method to use the messageGenerator to create a new message and pass the values to 
+    the showMessage() method.
 
-  public function IndexMediator( messageGenerator:MessageGenerator ) {
-    this.messageGenerator = messageGenerator;
-  }
+      override protected function onRegister():void {
+        var messageObj:Message = messageGenerator.newMessage();
+        messageWindow.showMessage(messageObj.title, messageObj.message );
+      }
 
-16) Change your on register method to use the messageGenerator to create a new message and pass the values to the showMessage() method.
+23. Save, build and run your code.
 
-  override protected function onRegister():void {
-    var messageObj:Message = messageGenerator.newMessage();
-    messageWindow.showMessage(messageObj.title, messageObj.message );
-  }
+    Your Mediator will now use the injected MessageGenerator to display the message. This is the basis for how 
+    mediators will interact with any and all business logic in the system.
 
-17) Save, build and run your code.
-
-Your Mediator will now use the injected MessageGenerator to display the message. This is the basis for how mediators will interact with any and all business logic in the system.
-
-18) At this point it is worthwhile to examine your code and the narration of the events occurring below to understand how Randori works.
+24. At this point it is worthwhile to examine your code and the narration of the events occurring below to 
+    understand how Randori works.
 
 1. Your browser loads index.html.
 2. The browser executes the script blocks loading Randori and RandoriGuice.
