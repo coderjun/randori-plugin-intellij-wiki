@@ -1,6 +1,6 @@
 Using Randori for ActionScript requires IntelliJ IDEA, the Randori Plugin and SDK. The goal of this lesson is to get the Randori environment properly configured in IntelliJ IDEA.
 
-**N.B.** The Randori plugin will NOT work in the community edition of IntelliJ.
+**N.B.** The Randori plugin will _NOT_ work in the community edition of IntelliJ.
 
 1) Download the Randori SDK from https://github.com/RandoriAS/randori-sdk/archive/v0.2.1.zip and save it on your drive in a known location. Unzip this SDK as you will need it in a later step. 
 
