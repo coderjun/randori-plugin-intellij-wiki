@@ -17,9 +17,9 @@ Setting up a development web server is not strictly necessary, but rather a conv
        <div>Simple Test</div>
      </body>
 
-   As you will see shortly, Randori uses ids as object identifiers.
 
-6. Next, click Run from the Top menu, and choose Edit Configurations from the drop down.
+
+6. Next, navigate to the Run menu and choose Run. You will be presented with a small dialog box asking you to Edit Configurations. Select Edit Configurations.
 
    http://randoriframework.com/wp-content/uploads/2013/03/lesson2-1.png
 
