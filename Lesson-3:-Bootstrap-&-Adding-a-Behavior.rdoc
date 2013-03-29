@@ -96,47 +96,30 @@ It generates a method named getClassDependencies, which is used by Randori to en
 
 Finally it generates a method which is used to determine injection points. This will become clearer as we grow this small demo and use the features of Randori.
 
-``behaviors.MessageWindow.injectionPoints = function(t) {``
-
-``	var p;``
-
-``	switch (t) {``
-
-``		case 1:``
-
-``			p = randori.behaviors.AbstractBehavior.injectionPoints(t);``
-
-``			break;``
-
-``		case 2:``
-
-``			p = randori.behaviors.AbstractBehavior.injectionPoints(t);``
-
-``			break;``
-
-``		case 3:``
-
-``			p = randori.behaviors.AbstractBehavior.injectionPoints(t);``
-
-``			break;``
-
-``		default:``
-
-``			p = [];``
-
-``			break;``
-
-``	}``
-
-``	return p;``
-
-``};``
+  behaviors.MessageWindow.injectionPoints = function(t) {
+    var p;
+    switch (t) {
+      case 1:
+        p = randori.behaviors.AbstractBehavior.injectionPoints(t);
+        break;
+      case 2:
+        p = randori.behaviors.AbstractBehavior.injectionPoints(t);
+        break;
+      case 3:
+        p = randori.behaviors.AbstractBehavior.injectionPoints(t);
+        break;
+      default:
+        p = [];
+        break;
+    }
+    return p;
+  };
 
 Remember, the goal at this stage is readable, not optimized code.
 
 12) Return to the index.html file. As a starting point, find your div with Simple Test text and add the following code:
 
-``<div data-behavior="behaviors.MessageWindow">Simple Test</div>``
+  <div data-behavior="behaviors.MessageWindow">Simple Test</div>
 
 This code indicates that the MessageWindow behavior should decorate this node. Using HTML data attributes is a quick way to test, but it is more limiting and less elegant that other approaches which we will explore shortly.
 
