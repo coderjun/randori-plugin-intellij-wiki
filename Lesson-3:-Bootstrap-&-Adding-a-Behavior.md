@@ -8,7 +8,7 @@ In this lesson, you will add the basic script tags needed for Randori along with
 
 ``<head>``
 
-``<title></title>\n``
+``<title></title>``
 
 ``<!-- JQuery -->``
 
