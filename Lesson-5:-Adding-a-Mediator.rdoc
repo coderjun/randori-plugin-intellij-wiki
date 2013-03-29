@@ -68,7 +68,7 @@ In this lesson, you will add a mediator to the project. A mediator’s job is to
     Note that, other than the data attributes, you are not modifying the HTML in any way. When using Randori 
     this is crucial as the framework is designed to leave the HTML in a format that easily maintained by an HTML/CSS 
     developer in the tool of their choice.
-
+    
     The framework developers consider it a failure if the HTML dev needs to use the Randori framework, plugin or code to do their job.
 
 In the next lesson, you will see an alternate way to {assign behaviors and mediators}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-6:-Managing-Randori-with-CSS] to objects that both provides a way to eliminate the data-* attributes from your code, but also begins to allow for a level of indirection that can provide for a customizable experience for your end users based on device or any other criteria.
