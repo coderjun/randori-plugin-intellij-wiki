@@ -157,35 +157,39 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
 24. At this point it is worthwhile to examine your code and the narration of the events occurring below to 
     understand how Randori works.
 
-1. Your browser loads index.html.
-2. The browser executes the script blocks loading Randori and RandoriGuice.
-3. The browser executes the script block with the RandoriBootstrap executes.
-4. Randori recurses the DOM from the point you specified (document in this case)
-5. Randori finds the node with stylesheet/randori.
-   - Randori loads and parses that stylesheet.
-   - Randori ‘releases’ the stylesheet to the DOM. 
-      * In practice this means you will see two loads of the same stylesheet if you look in your network tab,       
-        however, the second one is pulled from the cache.
-6. Randori encounters the body tag and notices the style requiring an IndexMediator
-   - Randori loads IndexMediator.js
-   - IndexMediator requires a MessageGenerator
-     * Randori loads MessageGenerator.js
-     * Randori instantiates MessageGenerator
-   - Randori then instantiates the IndexMediator, passing it the MessageGenerator instance
-   - Randori provides the IndexMediator instance a reference to the body element
-   - Randori recurses further into the DOM
-   - Randori finds the div requiring the MessageWindow
-     * Randori loads MessageWindow.js
-     * Randori instantiates the MessageWindow
-     * Randori provides the MessageWindow instance a reference to the div element it manages
-     * Randori finishes recursing the DOM
-     * Randori calls the onRegister() method of the MessageWindow instance
-   - Randori provides the IndexMediator instance a reference to the MessageWindow that it instantiated  
-     (remember, the IndexMediator has View metadata asking for the MessageWindow)
-   - Randori calls the onRegister() method of the IndexMediator instance.
-7. Randori does nothing. It’s not monitoring or in any other way interacting with the system. 
-   It is done until we explicitly ask it to do something again.
+    1. Your browser loads index.html.
+    2. The browser executes the script blocks loading Randori and RandoriGuice.
+    3. The browser executes the script block with the RandoriBootstrap executes.
+    4. Randori recurses the DOM from the point you specified (document in this case)
+    5. Randori finds the node with stylesheet/randori.
+       - Randori loads and parses that stylesheet.
+       - Randori ‘releases’ the stylesheet to the DOM. 
+         * In practice this means you will see two loads of the same stylesheet if you look in your network 
+           tab, however, the second one is pulled from the cache.
+    6. Randori encounters the body tag and notices the style requiring an IndexMediator
+       - Randori loads IndexMediator.js
+       - IndexMediator requires a MessageGenerator
+         * Randori loads MessageGenerator.js
+         * Randori instantiates MessageGenerator
+       - Randori then instantiates the IndexMediator, passing it the MessageGenerator instance
+       - Randori provides the IndexMediator instance a reference to the body element
+       - Randori recurses further into the DOM
+       - Randori finds the div requiring the MessageWindow
+         * Randori loads MessageWindow.js
+         * Randori instantiates the MessageWindow
+         * Randori provides the MessageWindow instance a reference to the div element it manages
+         * Randori finishes recursing the DOM
+         * Randori calls the onRegister() method of the MessageWindow instance
+       - Randori provides the IndexMediator instance a reference to the MessageWindow that it instantiated  
+         (remember, the IndexMediator has View metadata asking for the MessageWindow)
+       - Randori calls the onRegister() method of the IndexMediator instance.
+   7. Randori does nothing. It’s not monitoring or in any other way interacting with the system. 
+      It is done until we explicitly ask it to do something again.
 
-By default, the Randori compiler creates singular files for each equivalent class and loads each dynamically. This allows fantastic scalability, especially in situations like large applications where the user’s path through an application is unknown and is unlikely to need every file in your project. As you will see later, you can customize this behavior to decide which files should be left dynamic, and which loaded initially.
+   By default, the Randori compiler creates singular files for each equivalent class and loads each 
+   dynamically. This allows fantastic scalability, especially in situations like large applications where the   
+   user’s path through an application is unknown and is unlikely to need every file in your project. As you 
+   will see later, you can customize this behavior to decide which files should be left dynamic, and which 
+   loaded initially.
 
 The next lesson will dive further into injection by covering contexts, which governs how injection rules are applied occurs and the subsequent lesson will explain how we ask Randori to ‘do something’ again by dynamically loading more content.
