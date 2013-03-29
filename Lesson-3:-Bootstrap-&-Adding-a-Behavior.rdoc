@@ -89,9 +89,9 @@ In this lesson, you will add the basic script tags needed for Randori along with
         this.decoratedNode.html("I am registered");
       }
 
-   Every Randori behavior is provided a reference to the node it decorates wrapped in jQuery. In this case, we 
-   are setting the html of that node to a message so we can simply ensure the behavior is working. Presently 
-   you have a behavior but it is not used anywhere in the application. We will change that next.
+    Every Randori behavior is provided a reference to the node it decorates wrapped in jQuery. In this case, 
+    we are setting the html of that node to a message so we can simply ensure the behavior is working. 
+    Presently you have a behavior but it is not used anywhere in the application. We will change that next.
 
 11. Save this file. When you do, the Randori compiler will generate JavaScript code from your work so far. 
 
