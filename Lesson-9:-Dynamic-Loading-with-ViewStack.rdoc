@@ -125,57 +125,60 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
 19. Use the then() method of the promise to log something to the console when the view is resolved as shown 
     below.
 
-  private function handleLoadMore( event:Event ):void {
-    var promise:Promise = myViewStack.pushView("views/people.html");
+      private function handleLoadMore( event:Event ):void {
+        var promise:Promise = myViewStack.pushView("views/people.html");
 
-    promise.then( function(data:Object):void {
-      Window.console.log("Got it");
-    } );
-  }
+        promise.then( function(data:Object):void {
+          Window.console.log("Got it");
+        } );
+      }
 
-Your console.log() will execute once the view is completely ready.
+    Your console.log() will execute once the view is completely ready.
 
-For any type of production code, you should always check for the existence of Window.console before actually calling log. The console does not exist when IE is not in debug mode, meaning your code works in debug and fails in production.
+    For any type of production code, you should always check for the existence of Window.console before 
+    actually calling log. The console does not exist when IE is not in debug mode, meaning your code works in   
+    debug and fails in production.
 
-17) Save, build and run your code. When you press the load more button, it should load the people view below.
+20. Save, build and run your code. When you press the load more button, it should load the people view below.
 
-18) Right click on the mediators package and create a new mediator named PeopleMediator
+21. Right click on the mediators package and create a new mediator named PeopleMediator
 
-19) Open the behavior.css from the assets folder. 
+22. Open the behavior.css from the assets folder. 
 
-20) Add the a class selector called peopleView for the new mediator you just created
+23. Add the a class selector called peopleView for the new mediator you just created
 
-  .peopleView {
-    -randori-mediator: "mediators.PeopleMediator";
-  }
+      .peopleView {
+        -randori-mediator: "mediators.PeopleMediator";
+      }
 
-21) While still in the css file, also add a new class selector called simpleList for the Randori simple list class as shown below:
+24. While still in the css file, also add a new class selector called simpleList for the Randori simple list 
+    class as shown below:
 
-  .simpleList {
-    -randori-behavior: "randori.behaviors.SimpleList";
-  }
+      .simpleList {
+        -randori-behavior: "randori.behaviors.SimpleList";
+      }
 
-22) Open people.html, add a class attribute and specify peopleView on the body.
+25. Open people.html, add a class attribute and specify peopleView on the body.
 
-  <body class="peopleView">
-    This is people
-  </body>
+      <body class="peopleView">
+        This is people
+      </body>
 
-23) Next, eliminate the text this is people and replace it with an unordered list as show in the code below:
+26. Next, eliminate the text this is people and replace it with an unordered list as show in the code below:
 
-  <body class="peopleView">
-    <ul>
-    </ul>
-  </body>
+      <body class="peopleView">
+        <ul>
+        </ul>
+      </body>
 
-24) Assign the unordered list the class simpleList and give it an id of names
+27. Assign the unordered list the class simpleList and give it an id of names
 
-  <body class="peopleView">
-    <ul id="names" class="simpleList">
-    </ul>
-  </body>
+      <body class="peopleView">
+        <ul id="names" class="simpleList">
+        </ul>
+      </body>
 
-This will make decorate the unordered list as a simple list.
+    This will make decorate the unordered list as a simple list.
 
 25) Inside of the unordered list, add a list element with an id of template as the following code shows:
 
