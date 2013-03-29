@@ -69,9 +69,9 @@ In this lesson, you will add a mediator to the project. A mediator’s job is to
 
       <body data-mediator="mediators.IndexMediator">
 
-   Randori will now instantiate mediators.IndexMediator and assign it a reference to the body. All behaviors 
-   and mediators work this way inside of Randori. The mediator/behavior knows about the DOM node it is   
-   supposed to manage, however, the DOM node unaware of (does not contain a reference to) the behavior.
+    Randori will now instantiate mediators.IndexMediator and assign it a reference to the body. All behaviors 
+    and mediators work this way inside of Randori. The mediator/behavior knows about the DOM node it is   
+    supposed to manage, however, the DOM node unaware of (does not contain a reference to) the behavior.
 
 12. Save your files and build Randori
 
