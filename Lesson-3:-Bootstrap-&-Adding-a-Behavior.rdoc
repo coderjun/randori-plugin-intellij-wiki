@@ -6,6 +6,15 @@ In this lesson, you will add the basic script tags needed for Randori along with
 
 3) Start by adding a script tag in the head of the HTML file which will load jQuery from google’s content host. Alternatively you are free to use a local copy of jQuery if you have one.
 
+(({<script type="text/javascript">
+  //Start the randori framework
+  jQuery(function () {
+     var randoriApp = new randori.startup.RandoriBootstrap(document);
+     randoriApp.launch();
+  });
+</script>}))
+
+
 ``<head>``
 
 ``<title></title>``
