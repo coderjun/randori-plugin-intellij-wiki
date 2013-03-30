@@ -37,7 +37,7 @@ In this lesson, you will use CSS to eliminate the data-* attributes in your code
 
      <link rel="stylesheet/randori" href="assets/behaviors.css" type="text/css"/>
 
-   Not the following things. This is not declared as a regular stylesheet, but rather as a stylesheet/randori, 
+   Note the following things. This is not declared as a regular stylesheet, but rather as a stylesheet/randori, 
    this is what allows us to capture this element and parse our vendor extension aspects out before we return 
    control of the style sheet to the browser.
 
