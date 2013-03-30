@@ -63,7 +63,7 @@ In this lesson, you will add a mediator to the project. A mediator’s job is to
 13. Green the green play button to launch the application. 
 
     If everything worked properly, you will now see Brand new Title and My Mediator is Ready on the screen. 
-    Your mediator is now interacting with your behavior instead of on the DOM directly.  It is important to not that the mediator can call methods on a behavior which will interact with the DOM. This is the key to the way Randori works and builds.
+    Your mediator is now interacting with your behavior instead of on the DOM directly.  It is important to note that the mediator can call methods on a behavior which will interact with the DOM. This is the key to the way Randori works and builds.
 
     Note that, other than the data attributes, you are not modifying the HTML in any way. When using Randori 
     this is crucial as the framework is designed to leave the HTML in a format that easily maintained by an HTML/CSS 
