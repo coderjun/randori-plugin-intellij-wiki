@@ -1,6 +1,6 @@
 In this lesson, you will continue to use Randori Guice, a Randori specific port of Google’s dependency injection framework. You will learn about how Guice makes the decision on what objects to inject, and how to vary that decision at any point in the application. You will also learn about the default context and scope modifiers.
 
-1. Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ.
 
 2. Open and examine your IndexMediator class. 
 
@@ -32,22 +32,15 @@ In this lesson, you will continue to use Randori Guice, a Randori specific port 
 
 7. Right click on the contexts package, New->Randori Context. Name the class BoringContext
 
-8. Override the configure() method of the GuiceModule class as shown below:
 
-     override public function configure(binder:Binder):void {
-     }
-
-   The Binder instance passed to this method keeps track of the rules Guice uses to inject various 
-   dependencies. You will start by asking Guice to make a substitution.
-
-9. Inside this method, call the bind() method of the Binder instance, passing it the MessageGenerator class. 
+9. Inside the configure() method, call the bind() method of the Binder instance, passing it the MessageGenerator class. 
    Call the to() method on the returned object and pass it the BoringMessageGenerator as show below.
 
      override public function configure(binder:Binder):void {
        binder.bind(MessageGenerator).to(BoringMessageGenerator);
      }
 
-   This asks Guice to substitute the BoringMessageGenerator for the original MessageGenerator anywhere it is   
+   The Binder instance passed to this method keeps track of the rules Guice uses to inject various dependencies.  You are then  asking Guice to substitute the BoringMessageGenerator for the original MessageGenerator anywhere it is   
    requested. Next you will need to instruct Randori Guice to use this context in your application.
 
 10. Open the behaviors.css file from the assets folder.
