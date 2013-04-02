@@ -76,7 +76,7 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
       loadMore.click( handleLoadMore );
 
     You will notice as you are typing that there are several click() methods. Right now these are named 
-    numerically but we will provide a superior naming convention shortly. ActionScript does not have method 
+    numerically but a superior naming convention will be provided shortly. ActionScript does not have method 
     overloading and this is exactly the use case where it is needed.
 
 14. Create a new private handleLoadMore() method which takes an event of type randori.jquery.Event as follows:
@@ -112,15 +112,15 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
     way to respond after the operation completes. To that end, Randori provides a Promises/A+ compliant 
     implementation which is used for asynchronous operations.
 
-18. Assign the result of calling pushView() to a new variable of type Promise from the RANDORI library. 
+18. Assign the result of calling pushView() to a new variable of type Promise from the randori.async package. 
  
       private function handleLoadMore( event:Event ):void {
         var promise:Promise = myViewStack.pushView("views/people.html")
       }
 
     Be cautious with this step. As is often the case, there are multiple Promises implementations using the 
-    same name but in different packages. For example, JQuery also provides a promises implementation; however, 
-    it is not necessarily compliant. Ensure you use the one from the Randori package.
+    same name but in different packages. For example, JQuery also provides a promises implementation (in the randori.jquery package); however, 
+    it is not necessarily compliant. Ensure you use the one from the randori.async package.
 
 19. Use the then() method of the promise to log something to the console when the view is resolved as shown 
     below.
@@ -190,7 +190,7 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
 
     This will specify the HTML fragment that Randori will use as a template.
 
-29. Finally, specify that we wish to show the name field from the data set the list will be provided
+29. Finally, specify that you want to show the name field from the data which will be provided to the list.
 
       <body class="peopleView">
         <ul id="names" class="simpleList">
@@ -208,10 +208,7 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
       [View]
       public var names:SimpleList;
 
-31. Override the onRegister() method so that we can provide some test data to the list:
-  
-      override protected function onRegister():void {
-      }
+
 
 32. Inside the onRegister() method create a couple of simple objects with a name property and add them to an 
     array as the following code shows:
@@ -222,7 +219,7 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
         var ar:Array = [o1,o2];
       }
 
-    Yes, this is just temporary. In the next lesson, we will get this data from a remote service.
+    Yes, this is just temporary. In the next lesson, you will get this data from a remote service.
 
 33. Finally, assign the array instance to the data property of the SimpleList instance:
 
