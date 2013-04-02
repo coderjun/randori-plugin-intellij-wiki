@@ -1,6 +1,6 @@
 In this lesson, you will use Randori Guice, a Randori specific port of Google’s dependency injection framework to inject objects into your mediator. You will see how Randori will recursively resolve dependencies on your behalf and understand the ease at which this allows your application to scale.
 
-1. Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ.
 
 2. Right click on the src package and make a new package called messages.
 
@@ -32,8 +32,8 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
 
    This is going to be a value object used to contain a Message as it is passed around the application.
 
-6. Save your file and switch to the MessageGenerator class.
-   This class is a simple factory for making Messages.
+6. Save your file and right click on the messages package and create a new Randori class named MessageGenerator.
+   This class will be a simple factory for making Messages.
 
 7. Inside of the MessageGenerator class, create a new method named newMessage() which accepts no arguments but 
    returns a Message.
@@ -52,7 +52,7 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
        return new Message("My Title", message );
      }
 
-9. Save the MessageGenerator class and build this code so we can examine it next.
+9. Save the MessageGenerator class and build this code so you can examine it next.
 
 10. Open the MessageGenerator.js file from the generated/messages folder. Not the folder contains both 
     MessageGenerator.js and Message.js
@@ -68,13 +68,10 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
     Randori compiler. Effectively, it is indicating that the MessageGenerator class requires the Message class 
     to function and therefore Randori must ensure Message is loaded before MessageGenerator.
 
-    The compiler tracks these dependencies and writes the requisite functions. Randori ensures they are loaded 
+    The compiler tracks these dependencies and writes the required functions. Randori ensures they are loaded 
     on your behalf as system objects are created.
 
-    While this is an interesting example, it’s slightly wasteful. Value objects are a useful concept at 
-    compile time, but here we are instantiating a Message object simply to hold a value. In JavaScript we 
-    would likely just use a generic object for this purpose and save some processor cycles. Let’s deal with 
-    that next.
+    While this is an interesting example, it’s slightly wasteful. Value objects are a useful concept at compile time, but here you are instantiating a Message object simply to hold a value. In JavaScript most would likely just use a generic object for this purpose and save some processor cycles. You will deal with  that next.
 
 13. Return to your Message ActionScript class, you will now add a piece of JavaScript metadata above the class
 
@@ -89,7 +86,7 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
         }
       }
 
-    This piece of metadata is always implied to be over any class compiled by Randori. However, you can also    
+    Randori treats each class as if it were decorated with this metadata. However, you can also    
     customize the attributes of it to instruct the compiler to treat this class in a different way.
 
 14. Set three attributes in the metadata. export="false",name="Object",mode="json" as follows:
@@ -104,11 +101,11 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
     Finally, the mode instructs the compiler that any instantiations of this object should actually just be 
     treated as though the developer had written JSON for the object.
 
-    Effectively, this means we will have a typed object at compile time that can be refactored, passed and 
-    used in a typed way, however, at runtime, we incur no penalty for this as the compiler will simply 
+    Effectively, this means you will have a typed object at compile time that can be refactored, passed and 
+    used in a typed way, however, at runtime, it incurs no penalty for this as the compiler will simply 
     instantiate, pass and use a generic object instead.
 
-15. Save the MessageGenerator class. Perform a build and _clean_ of this code so we can examine it next.
+15. Save the MessageGenerator class. Perform a build and _clean_ of this code so you can examine it next.
 
 16. Open the MessageGenerator.js file from the generated/messages folder. You may also note that the 
     Message.js file is no longer present in this folder.
@@ -130,8 +127,8 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
       public function IndexMediator( messageGenerator:MessageGenerator ) {
       }
 
-    As the entirety of class building in Randori is built on dependency injection, we generally specify the    
-    classes we require rather than instantiate them and allow Randori to provide these classes.
+    As the entirety of class building in Randori is built on dependency injection, you generally specify the    
+    classes you require rather than instantiate them and allow Randori to provide these classes.
 
 21. Create a private variable in the class to hold this instance and assign it in the constructor.
 
@@ -151,7 +148,7 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
 
 23. Save, build and run your code.
 
-    Your Mediator will now use the injected MessageGenerator to display the message. This is the basis for how 
+    Your Mediator will now use the injected MessageGenerator to display the message, you will be able to tell this is the case, as the browser output will include a date along with the message.. This is the basis for how 
     mediators will interact with any and all business logic in the system.
 
 24. At this point it is worthwhile to examine your code and the narration of the events occurring below to 
@@ -159,7 +156,7 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
 
     1. Your browser loads index.html.
     2. The browser executes the script blocks loading Randori and RandoriGuice.
-    3. The browser executes the script block with the RandoriBootstrap executes.
+    3. The  script block with the RandoriBootstrap executes.
     4. Randori recurses the DOM from the point you specified (document in this case)
     5. Randori finds the node with stylesheet/randori.
        - Randori loads and parses that stylesheet.
@@ -184,7 +181,7 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
          (remember, the IndexMediator has View metadata asking for the MessageWindow)
        - Randori calls the onRegister() method of the IndexMediator instance.
     7. Randori does nothing. It’s not monitoring or in any other way interacting with the system. 
-       It is done until we explicitly ask it to do something again.
+       It is done until it is explicitly asked to do something again.
 
     By default, the Randori compiler creates singular files for each equivalent class and loads each 
     dynamically. This allows fantastic scalability, especially in situations like large applications where the   
@@ -192,4 +189,4 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
     will see later, you can customize this behavior to decide which files should be left dynamic, and which 
     loaded initially.
 
-The next lesson will dive further into injection by covering {contexts}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-8:-Contexts], which governs how injection rules are applied occurs and the subsequent lesson will explain how we ask Randori to ‘do something’ again by dynamically loading more content.
+The next lesson will dive further into injection by covering {contexts}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-8:-Contexts], which governs how injection rules are applied and the subsequent lesson will explain how to ask Randori to ‘do something’ again by dynamically loading more content.
