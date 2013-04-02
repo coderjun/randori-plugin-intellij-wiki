@@ -1,4 +1,4 @@
-In this lesson, you will add a mediator to the project. A mediator’s job is to mediate between various other objects that compose a view in a Randori project. Mediators should not contain business logic nor directly manipulate the DOM. Rather, their job is to communicate with behaviors, business logic, services and respond to events raised by user input.
+In this lesson, you will add a mediator to the project. A mediator’s job is to mediate between the various objects that compose a view in a Randori project. Mediators should not contain business logic nor directly manipulate the DOM. Rather, their job is to communicate with behaviors, business logic, services and respond to events raised by user input.
 
 1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ.
 
