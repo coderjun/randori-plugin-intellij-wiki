@@ -1,6 +1,6 @@
 In this lesson, you will use CSS to eliminate the data-* attributes in your code, allowing for a cleaner experience with HTML developers, promoting a simpler syntax for reuse, and allowing for a level of indirection in the behavior choices for Randori.
 
-1. Ensure you have the SimpleTest project we created in the last lesson open in IntelliJ
+1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ
 
 2. Right click on the SimpleTest project and create a new Directory named assets
 
@@ -17,12 +17,11 @@ In this lesson, you will use CSS to eliminate the data-* attributes in your code
        -randori-mediator: "mediators.IndexMediator";
      }
 
-   Randori defines a sort of vendor extension that is used to define behaviors. It is possible to mix these 
-   with real regular CSS style sheets, but in our experience keeping them separate in a sort of Behavior Style 
+   Randori introduces some specific styles of its own, to allow you to define behaviors in CSS.  It is possible to mix these 
+   with traditional regular CSS style sheets, but it is recommended to keep them separate in their own  Behavior Style 
    Sheet is a better practice.
 
-   In this case you are indicating that anything with the class simpleApp will also get a mediator named 
-   IndexMediator.
+   In this case you are indicating that anything with the CSS class simpleApp will usean instance of the IndexMediator class as a mediator.
 
 6. Next, add a new selector named messageWindow. Inside of the selector, add a style for –randori-behavior: 
    behaviors.MessageWindow;
@@ -37,9 +36,7 @@ In this lesson, you will use CSS to eliminate the data-* attributes in your code
 
      <link rel="stylesheet/randori" href="assets/behaviors.css" type="text/css"/>
 
-   Note the following things. This is not declared as a regular stylesheet, but rather as a stylesheet/randori, 
-   this is what allows us to capture this element and parse our vendor extension aspects out before we return 
-   control of the style sheet to the browser.
+   Notice the value of the rel attribute, “stylesheet/randori” instead of just “stylesheet” as you would normally expect.  This indicates to the framework that there are randori specific values which should be parsed out and applied before the browser attempts to use the stylesheet otherwise.
 
 9. Find the body tag and remove the data-mediator="mediators.IndexMediator"
 
