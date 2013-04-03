@@ -17,11 +17,11 @@ In this lesson, you will use CSS to eliminate the data-* attributes in your code
        -randori-mediator: "mediators.IndexMediator";
      }
 
-   Randori introduces some specific styles of its own, to allow you to define behaviors in CSS.  It is possible to mix these 
-   with traditional regular CSS style sheets, but it is recommended to keep them separate in their own  Behavior Style 
-   Sheet is a better practice.
+   Randori introduces some specific styles of its own, to allow you to define behaviors in CSS.  It is 
+   possible to mix these with traditional regular CSS style sheets, but it is recommended to keep them 
+   separate in their own  Behavior Style Sheet is a better practice.
 
-   In this case you are indicating that anything with the CSS class simpleApp will usean instance of the IndexMediator class as a mediator.
+   In this case you are indicating that anything with the CSS class simpleApp will use an instance of the IndexMediator class as a mediator.
 
 6. Next, add a new selector named messageWindow. Inside of the selector, add a style for –randori-behavior: 
    behaviors.MessageWindow;
