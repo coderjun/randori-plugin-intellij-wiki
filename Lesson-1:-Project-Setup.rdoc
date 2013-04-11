@@ -9,25 +9,27 @@ Using Randori for ActionScript requires IntelliJ IDEA version 12, the Randori Pl
 
    This is the SDK that provide the Randori framework code as well as several core library definitions.
 
-2. Open up IntelliJ, and go to File -> Settings... -> Plugins.   If this is your first time opening IntelliJ, you can choose Configure -> Plugins from the quick start menu.
+2. Open up IntelliJ, and go to File -> Settings... -> Plugins.   If this is your first time opening 
+   IntelliJ, you can choose Configure -> Plugins from the quick start menu.
 
-   In the bottom left  of the screen, click the Browse repositories... button and enter the search term 'Randori' into the 
-   textbox in the right upper corner of the screen. This will, probably, yield just one result called 
-   something along the lines of 'Randori compiler Framework integration', double click this entry and download the plugin,   
-   after that completes, press close and then apply.
+   In the bottom left  of the screen, click the Browse repositories... button and enter the search term 
+   'Randori' into the textbox in the right upper corner of the screen. This will, probably, yield just one 
+   result called something along the lines of 'Randori compiler Framework integration', double click this 
+   entry and download the plugin, after that completes, press close and then apply.
 
    Now you'll need to restart IntelliJ, go ahead and do so.
 
-3. Next, you will need to extract the contents of the zip file downloaded in Step 1 to a known location on your drive.
+3. Next, you will need to extract the contents of the zip file downloaded in Step 1 to a known location on 
+   your drive.
 
 4. Once the SDK is unzipped, return to IntelliJ. Click Create New Project.
 
    http://randoriframework.com/wp-content/uploads/2013/03/lesson1-1.png
 
-5. Setting up the project for the first time will require multiple steps. To save yourself some debugging, do 
-   not press Finish until the end of step 6. On the left side of the screen, choose Randori Module as the project 
-   type (listed under the "other" category). On the right side, name your project SimpleTest and choose a location on your drive to store the 
-   associated files and assets.
+5. Setting up the project for the first time will require multiple steps. To save yourself some debugging, 
+   do not press Finish until the end of step 6. On the left side of the screen, choose Randori Module as the 
+   project type (listed under the "other" category). On the right side, name your project SimpleTest and 
+   choose a location on your drive to store the associated files and assets.
 
    http://randoriframework.com/wp-content/uploads/2013/03/lesson1-2.png
 
