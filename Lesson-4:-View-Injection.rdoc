@@ -73,13 +73,14 @@ In this lesson, you will begin to work with the dependency and view injection co
 
 12. If you want to test this new method, you can add a call to it in the onRegister() method.
   
-  override protected function onRegister():void {
-      showMessage("Title Goes Here", "Message Goes Here");
-  }
-Save and run, and you can see the new title and messages.  Be sure to delete the contents of this method when you are done, as this information will be put into another class in the next lesson.
+      override protected function onRegister():void {
+        showMessage("Title Goes Here", "Message Goes Here");
+      }
+    Save and run, and you can see the new title and messages.  Be sure to delete the contents of this method   
+    when you are done, as this information will be put into another class in the next lesson.
 
-    override protected function onRegister():void {
+      override protected function onRegister():void {
 
-    }
+      }
 
 In the next lesson you will {create a mediator to manage the index and interact with this behavior}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-5:-Adding-a-Mediator].
