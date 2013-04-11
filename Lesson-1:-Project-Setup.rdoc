@@ -33,11 +33,11 @@ Using Randori for ActionScript requires IntelliJ IDEA version 12, the Randori Pl
 
    http://randoriframework.com/wp-content/uploads/2013/03/lesson1-2.png
 
-7. Next, under Project SDK on the right side of the screen, click New… and browse to the location where the 
+6. Next, under Project SDK on the right side of the screen, click New… and browse to the location where the 
    RandoriSDK was extracted on your drive. It’s now safe to click Finish.
 
    http://randoriframework.com/wp-content/uploads/2013/03/lesson1-3.png
 
-8. You should now see the SDK listed underneath the project name and location.
+7. You should now see the SDK listed underneath the project name and location.
 
 You now have a new project that has been properly configured with the Randori SDK. In the next section you will begin {adding HTML, CSS and ActionScript to the project}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-2:-Creating-an-Initial-HTML-file-&-Run-Configuration].
