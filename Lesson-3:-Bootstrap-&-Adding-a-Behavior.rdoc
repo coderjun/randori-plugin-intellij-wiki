@@ -40,7 +40,7 @@ In this lesson, you will add the basic script tags needed for Randori along with
        //Start the randori framework
        jQuery(function () {
          var randoriApp = new randori.startup.RandoriBootstrap(document);
-         randoriApp.launch();
+         randoriApp.launch( true );
        });
      </script>
 
@@ -49,15 +49,15 @@ In this lesson, you will add the basic script tags needed for Randori along with
    connection between the DOM and the code through the use of a mediator and set of decorator patterns. Any state, application 
    or other aspects you choose to maintain are at your own discretion. 
 
+   The true passed to the launch() method tells Randori you wish to use debug mode. Debug mode adds a cache busting query param to all network requests made through Randori to simplify debugging. This should not be left on in production.
+
 6. All of the source that you write for Randori will exist inside the src folder of the project. Right click on the src folder. Choose New->Package. Name the package behaviors.
 
 7. Right click on the behaviors package now. Choose New->Randori Behavior. Name the class MessageWindow. Press OK.
 
    At this point you may be wondering why you are creating classes, which is a fair question.  Randori is about mixing paradigms. Code can be in JavaScript or ActionScript, functional or object-oriented. The    goal of Randori is to let you choose the right approach at different levels and for different team skills.    Ultimately Randori is about integrating teams to build great apps.
 
-   This particular class extends AbstractBehavior. In Randori, behaviors are classes that can be written in 
-JavaScript or ActionScript. They are responsible for decorating a DOM node, managing any visual aspects and   
-providing an API to the rest of the application. The behavior you are building now is an extraordinarily simple behavior; however, behaviors can also be much more complex, such as Lists and Grids.
+   This particular class extends AbstractBehavior. In Randori, behaviors are classes that can be written in JavaScript or ActionScript. They are responsible for decorating a DOM node, managing any visual aspects and providing an API to the rest of the application. The behavior you are building now is an extraordinarily simple behavior; however, behaviors can also be much more complex, such as Lists and Grids.
 
 8. Before you begin coding, it’s a good idea to turn on the Randori Problems View. Navigate to View->Tool   
    Windows -> Randori Problems.
