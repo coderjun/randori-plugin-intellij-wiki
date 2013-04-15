@@ -128,12 +128,12 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
       private function handleLoadMore( event:Event ):void {
         var promise:Promise = myViewStack.pushView("views/people.html");
 
-        promise.then( function(data:Object):void {
+        promise.then( function(mediator:AbstractMediator):void {
           Window.console.log("Got it");
         } );
       }
 
-    Your console.log() will execute once the view is completely ready.
+    The promise will return the AbstractMediator associated with your new view. Your console.log() will then execute once the view is completely ready.
 
     For any type of production code, you should always check for the existence of Window.console before 
     actually calling log. The console does not exist when IE is not in debug mode, meaning your code works in   
