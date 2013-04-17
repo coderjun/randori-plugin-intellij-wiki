@@ -41,7 +41,7 @@ The point is that you can implement any service pattern you liked within Randori
 public class CommitterService extends AbstractService {
 ```
 
-AbstractService provides a few methods useful in creating a basic service layer, including the ability to construct a uri, a hook for modifying headers, and send a simple request a uri. The AbstractService accepts an XMLHttpRequest in its constructor, so you will add that next.
+   AbstractService provides a few methods useful in creating a basic service layer, including the ability to construct a uri, a hook for modifying headers, and send a simple request a uri. The AbstractService accepts an XMLHttpRequest in its constructor, so you will add that next.
 
 8. Add a parameter to the constructor named xmlHttpRequest of type XMLHttpRequest.
 ```
@@ -61,7 +61,7 @@ public function CommitterService( xmlHttpRequest:XMLHttpRequest ) {
 public function get():Promise {
 }
 ```
-The randori.async.Promise is a Promises/A+ implementation that is used throughout the framework as a way to handle asynchronous behavior.
+   The randori.async.Promise is a Promises/A+ implementation that is used throughout the framework as a way to handle asynchronous behavior.
 
 11. Create a new local variable named promise of type Promise, assign it to the result of calling sendRequest. Pass the sendRequest the verb “GET” and the path to the json file. Then return that promise.
 ```
@@ -71,9 +71,9 @@ public function get():Promise {
 } 
 ```
 
-This is a first version of the service. Later this can be evolved to have a more dynamic way to provide the path.
+   This is a first version of the service. Later this can be evolved to have a more dynamic way to provide the path.
 
-Right now calling this service would return a String with the JSON data. That’s less than ideal so next we will introduce a compile time model and a parser to hold this data shortly.
+   Right now calling this service would return a String with the JSON data. That’s less than ideal so next we will introduce a compile time model and a parser to hold this data shortly.
 
 12. Right click on the src package and create a new package named models.
 
@@ -102,13 +102,13 @@ public class Committer {
 }
 ```
 
-As a reminder, the export=”false” tells the compiler not to make a JavaScript file for this class. The name="Object" tells the compiler to use a generic Object instead if this class is ever referenced. The mode="json" tells the compiler just to generate JSON for any instantiations of this class.
+   As a reminder, the export=”false” tells the compiler not to make a JavaScript file for this class. The name="Object" tells the compiler to use a generic Object instead if this class is ever referenced. The mode="json" tells the compiler just to generate JSON for any instantiations of this class.
 
 17. Right click on the services package and create a new package named parsers.
 
 18. Right click on the parsers package and create a new Randori class named CommitterParser.
 
-For this particular class, you will create a Parser as we will do some specific parsing. However, if all of your objects simply use standard JSON, it is possible to reuse a standard parser in many cases.
+   For this particular class, you will create a Parser as we will do some specific parsing. However, if all of your objects simply use standard JSON, it is possible to reuse a standard parser in many cases.
 
 19. Create a new public method named parseResult, which accepts a generic object and returns an Array.
 ```
@@ -122,7 +122,7 @@ In this method, you transform the data from json to whatever structure your appl
 var json:Array = JSON.parse( result as String ) as Array;
 ```
 
-If our JSON file were formed differently, we might be done at this point. However, we have intentionally made it just a bit more complex in order to illustrate the idea of a parser. You are going to turn the comma separated list in the repositories field into an array.
+   If our JSON file were formed differently, we might be done at this point. However, we have intentionally made it just a bit more complex in order to illustrate the idea of a parser. You are going to turn the comma separated list in the repositories field into an array.
 
 21. Create a for loop, using i as an iterator that loops over the json array
 ```
@@ -158,7 +158,7 @@ for ( var i:int=0; i<json.length; i++ ) {
 }
 ```
 
-This code effectively rewrites the comma separated list of repositories with an Array
+   This code effectively rewrites the comma separated list of repositories with an Array
 
 25. As the last step of this method, return json. Your final method should look like the following:
 ```
@@ -193,16 +193,16 @@ public function CommitterService( xmlHttpRequest:XMLHttpRequest, parser:Committe
 }
 ```
 
-29) Inside the get() method, change the return statement to the result of calling promise.then() and passing the function parser.parseResult as the following code shows:
+29. Inside the get() method, change the return statement to the result of calling promise.then() and passing the function parser.parseResult as the following code shows:
 
-```
-public function get():Promise {
-	var promise:Promise = sendRequest("GET","assets/data/committers.json");
-	return promise.then( parser.parseResult );
-}
-```
+   ```
+   public function get():Promise {
+	   var promise:Promise = sendRequest("GET","assets/data/committers.json");
+	   return promise.then( parser.parseResult );
+   }
+   ```
 
-This code creates a promise that passes the result of the service call through the parser’s parseResult method and then returns that value.
+   This code creates a promise that passes the result of the service call through the parser’s parseResult method and then returns that value.
 
 30. Open the PeopleMediator class create a new public variable named service of type CommitterService. Add an inject annotation above it.
 ```
@@ -210,7 +210,7 @@ This code creates a promise that passes the result of the service call through t
 public var service:CommitterService;
 ```
 
-In this case, I am showing property injection, however, in production, I generally choose constructor injection for anything that is absolutely required for a class to function properly.
+   In this case, I am showing property injection, however, in production, I generally choose constructor injection for anything that is absolutely required for a class to function properly.
 
 31. Empty the onRegister() method of all the existing code.
 
@@ -219,7 +219,7 @@ In this case, I am showing property injection, however, in production, I general
 service.get().then( handleResult );
 ```
 
-This code calls your get() method and then calls the handleResult method (which you will create next) with the parsed result.
+   This code calls your get() method and then calls the handleResult method (which you will create next) with the parsed result.
 
 33. Create a handleResult() method which defines a parameter named results of type Array:
 ```
@@ -235,5 +235,5 @@ private function handleResult( result:Array ):void {
 
 35. Save your code and run it. When you click the Push People button, you will see a list of committers. 
 
-If you watch the network requests coming from the application when you click the Button, you will see that the PeopleMediator is loaded, which requires the CommitterService, which requires CommitterParser. All are loaded, and then the code to load the committers.json file, parses it and passes it along to the SimpleList.
+   If you watch the network requests coming from the application when you click the Button, you will see that the PeopleMediator is loaded, which requires the CommitterService, which requires CommitterParser. All are loaded, and then the code to load the committers.json file, parses it and passes it along to the SimpleList.
 
