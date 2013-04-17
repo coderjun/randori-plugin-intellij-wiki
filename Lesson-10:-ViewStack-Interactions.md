@@ -34,16 +34,16 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
 ```
 8. Save your html file and run the application. You will receive an error. This is intentional.
 
-Right now you have a required view injection for an element with an id of loadMore that isn’t being fulfilled. Randori throws errors when this happens to simplify debugging and prevent silent failures. Randori will never run the onRegister() method if a required view injection isn’t present.
+   Right now you have a required view injection for an element with an id of loadMore that isn’t being fulfilled. Randori throws errors when this happens to simplify debugging and prevent silent failures. Randori will never run the onRegister() method if a required view injection isn’t present.
 
-You can add a (required="false") attribute to any [View] annotations
+   You can add a (required="false") attribute to any [View] annotations
 
-```
-[View(required="false")]
-public var myViewElement: JQuery;
-```
+   ```
+   [View(required="false")]
+   public var myViewElement: JQuery;
+   ```
 
-Marking an element this way will stop Randori from validating its existence when the mediator is created. This is very useful for creating behaviors and mediators which have optional view elements; however, it is then your responsibility to check for their existence in any code before their use.
+   Marking an element this way will stop Randori from validating its existence when the mediator is created. This is very useful for creating behaviors and mediators which have optional view elements; however, it is then your responsibility to check for their existence in any code before their use.
 
 9. Right click on the loadMore variable, choose Refactor->Rename. Rename the variable to pushPeople. 
 
@@ -99,9 +99,9 @@ popView.click( function( event:Event ):void {
 ```
 18. Run the application. Open the debug tools and look at the div named viewstack. Push people onto the viewStack followed by things. You will see these being added to the div.
 
-You can push multiple copies of any view onto the stack. It truly works as a stack, with multiple copies existing, each with their own mediators where applicable.
+    You can push multiple copies of any view onto the stack. It truly works as a stack, with multiple copies existing, each with their own mediators where applicable.
 
 19. Click the pop view button to remove a view from the stack. 
 You will only ever see the top item on the stack. And you can only pop the top item off of the stack.
 
-The ViewStack class also has a selectView() method which accepts a url. This method causes the ViewStack to be resorted, moving the view specified by the url to the top of the stack. One caveat. In the event that multiple versions of the same url have been added to the ViewStack, the first one found will be moved. 
+    The ViewStack class also has a selectView() method which accepts a url. This method causes the ViewStack to be resorted, moving the view specified by the url to the top of the stack. One caveat. In the event that multiple versions of the same url have been added to the ViewStack, the first one found will be moved. 
