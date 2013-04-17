@@ -1,14 +1,14 @@
 **This lesson requires SDK version 0.2.5 or greater**
 
-In this lesson, you will explore the service model generally used by Randori applications. It’s primarily comprised of two types of classes, Services and Parsers.
+In this lesson, you will explore the service model frequently used in Randori applications. It’s primarily comprised of two types of classes, Services and Parsers.
 
 However, everything in this lesson can be taken as a suggestion. Randori is an open, injectable framework where you can actually change the core of the framework itself, by simply changing the injection configuration. Everything, including the injector itself, is swappable.
 
-The point is that you can implement any service pattern you liked within Randori; there are no dependencies on these suggestions but they are an effective approach to use when starting out.
+The point is that you can implement any service pattern you choose within Randori; there are no dependencies on these suggestions but they are an effective approach to use when starting out.
 
 1. Ensure you have the SimpleTest project open in IntelliJ
 
-2. Right click on the assets folder and create a new folder named data.
+2. Right click on the assets directory and create a new directory named data.
 
 3. Right click on the data folder and create a new file named committers.json
 4. Copy the following data into your JSON file
@@ -73,7 +73,7 @@ public function get():Promise {
 
    This is a first version of the service. Later this can be evolved to have a more dynamic way to provide the path.
 
-   Right now calling this service would return a String with the JSON data. That’s less than ideal so next we will introduce a compile time model and a parser to hold this data shortly.
+   Right now calling this service would return a String with the JSON data. That’s less than ideal so next this will change to introduce a compile time model and a parser to hold this data shortly.
 
 12. Right click on the src package and create a new package named models.
 
@@ -108,7 +108,7 @@ public class Committer {
 
 18. Right click on the parsers package and create a new Randori class named CommitterParser.
 
-   For this particular class, you will create a Parser as we will do some specific parsing. However, if all of your objects simply use standard JSON, it is possible to reuse a standard parser in many cases.
+   For this particular class, you will create a Parser to do some specific parsing. However, if all of your objects simply use standard JSON, it is possible to reuse a standard parser in many cases.
 
 19. Create a new public method named parseResult, which accepts a generic object and returns an Array.
 ```
@@ -122,7 +122,7 @@ In this method, you transform the data from json to whatever structure your appl
 var json:Array = JSON.parse( result as String ) as Array;
 ```
 
-   If our JSON file were formed differently, we might be done at this point. However, we have intentionally made it just a bit more complex in order to illustrate the idea of a parser. You are going to turn the comma separated list in the repositories field into an array.
+   If the JSON file were formed differently, you might be done at this point. However, this is a bit more complex in order to illustrate the idea of a parser. You are going to turn the comma separated list in the repositories field into an array.
 
 21. Create a for loop, using i as an iterator that loops over the json array
 ```
@@ -210,7 +210,7 @@ public function CommitterService( xmlHttpRequest:XMLHttpRequest, parser:Committe
 public var service:CommitterService;
 ```
 
-   In this case, I am showing property injection, however, in production, I generally choose constructor injection for anything that is absolutely required for a class to function properly.
+   This example is using property injection, however, in production constructor injection is preferred for anything that is absolutely required for a class to function properly.
 
 31. Empty the onRegister() method of all the existing code.
 
@@ -236,4 +236,3 @@ private function handleResult( result:Array ):void {
 35. Save your code and run it. When you click the Push People button, you will see a list of committers. 
 
    If you watch the network requests coming from the application when you click the Button, you will see that the PeopleMediator is loaded, which requires the CommitterService, which requires CommitterParser. All are loaded, and then the code to load the committers.json file, parses it and passes it along to the SimpleList.
-
