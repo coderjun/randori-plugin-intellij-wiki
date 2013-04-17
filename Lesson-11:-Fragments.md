@@ -4,7 +4,7 @@ However, there are times that you simply wish to include a fragment of HTML, wit
 
 1. Ensure you have the SimpleTest project open in IntelliJ
 
-2. Right-click on the SimpleTest project and create a new folder named fragments
+2. Right-click on the SimpleTest project and create a new directory named fragments
 
    You may notice that all HTML, CSS and assets are generally placed in folders at the root of the project, whereas the source code is placed under the src folders and in packages. This is intentional. The code in the src folder is transformed into js, which then resides in a generated folder at the project root. Code in the src folder will not be deployed into production; however, your assets, html and the generated folder constitutes a deployable project
 
