@@ -6,7 +6,7 @@ However, there are times that you simply wish to include a fragment of HTML, wit
 
 2. Right-click on the SimpleTest project and create a new folder named fragments
 
-You may notice that all HTML, CSS and assets are generally placed in folders at the root of the project, whereas the source code is placed under the src folders and in packages. This is intentional. The code in the src folder is transformed into js, which then resides in a generated folder at the project root. Code in the src folder will not be deployed into production; however, your assets, html and the generated folder constitutes a deployable project
+   You may notice that all HTML, CSS and assets are generally placed in folders at the root of the project, whereas the source code is placed under the src folders and in packages. This is intentional. The code in the src folder is transformed into js, which then resides in a generated folder at the project root. Code in the src folder will not be deployed into production; however, your assets, html and the generated folder constitutes a deployable project
 
 3. Right click on fragments and create a new HTML file called testFragment.html
 
@@ -19,11 +19,13 @@ You may notice that all HTML, CSS and assets are generally placed in folders at 
 5. Save this file and open behaviors.css
 
 6. Add a new class named testFragment as show below:
+```
 .testFragment {
     -randori-fragment: "fragments/testFragment.html";
 }
+```
 
-Just to illustrate the point, we will add a few visual styles into the definition next.
+   Just to illustrate the point, we will add a few visual styles into the definition next.
 
 7. Add a height of 150px, a width of 200px, and a position relative to the testFragment
 ```
@@ -45,7 +47,7 @@ Just to illustrate the point, we will add a few visual styles into the definitio
 
 10. Save the index.html and run it
 
-You will see your message on the screen. Randori imported the fragment. Right now this is a simple fragment as it does not contain further behaviors. You will change that next.
+    You will see your message on the screen. Randori imported the fragment. Right now this is a simple fragment as it does not contain further behaviors. You will change that next.
 
 11. Open your index.html and cut the following lines from the index.html. 
 ```
@@ -81,6 +83,6 @@ You will see your message on the screen. Randori imported the fragment. Right no
 
 14. Save and run the application.
 
-The screen display should be very similar, with a few positioning differences. However, Randori has now loaded the fragment from an external file. That fragment also contained behaviors. 
+    The screen display should be very similar, with a few positioning differences. However, Randori has now loaded the fragment from an external file. That fragment also contained behaviors. 
 
 Those behaviors were instantiated and injected into the mediator as though they had always existed on the page. Everything, including the message substitution you created with Guice earlier, was still applied.
