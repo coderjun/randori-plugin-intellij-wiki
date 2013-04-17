@@ -1,4 +1,4 @@
-In this lesson, you will continue to use the ViewStack to load multiple views and create a simple behavior with tabs to manage it. As you may remember, the ViewStack understands how to perform the dynamic loading of your view’s html, and then asks Randori to perform the same steps outlines in previous lessons to build the newly loaded content.
+In this lesson, you will continue to use the ViewStack to load multiple views and create a simple behavior with tabs to manage it. As you may remember, the ViewStack understands how to perform the dynamic loading of your view’s html, and then asks Randori to perform the same steps outlined in previous lessons to build the newly loaded content.
 
 With Randori, everything starts with a URL to an HTML file. After that HTML file is loaded, Randori decorates with the requisite functionality allowing it to become interactive.
 
@@ -14,7 +14,7 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
 ```
 4. Save your HTML file and open index.html
 
-5. In your index.html file, rename the existing input (currently named loadMode) to pushPeople and provide an appropriate value:
+5. In your index.html file, rename the existing input (currently named loadMore) to pushPeople and provide an appropriate value:
 ```
 <input id="pushPeople" value="Push People" type="button"/>
 ```
@@ -97,7 +97,7 @@ popView.click( function( event:Event ):void {
 	viewStack.popView();
 } );
 ```
-18. Run the application. Open the debug tools and look at the div named viewstack. Push people onto the viewStack followed by things. You will see these being added to the div.
+18. Run the application. Open the debug tools and look at the div named viewStack. Push people onto the viewStack followed by things. You will see these being added to the div.
 
     You can push multiple copies of any view onto the stack. It truly works as a stack, with multiple copies existing, each with their own mediators where applicable.
 
