@@ -1,4 +1,4 @@
-<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details:}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, [please read for more details](https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin).
 
 In the last lessons, you explored the ViewStack which is a great way to manage regions of the application which will display swappable content. Items in the ViewStack are expected to be complete HTML pages which could be edited as independent documents.
 
@@ -88,3 +88,5 @@ However, there are times that you simply wish to include a fragment of HTML, wit
     The screen display should be very similar, with a few positioning differences. However, Randori has now loaded the fragment from an external file. That fragment also contained behaviors. 
 
 Those behaviors were instantiated and injected into the mediator as though they had always existed on the page. Everything, including the message substitution you created with Guice earlier, was still applied.
+
+In the next lesson, you will learn more about [getting data with services and parsers](https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-12:-Services-and-Parsers).
