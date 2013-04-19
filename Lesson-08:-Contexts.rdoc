@@ -1,3 +1,5 @@
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details:}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
+
 In this lesson, you will continue to use Randori Guice, a Randori specific port of Google’s dependency injection framework. You will learn about how Guice makes the decision on what objects to inject, and how to vary that decision at any point in the application. You will also learn about the default context and scope modifiers.
 
 1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ.
@@ -108,4 +110,4 @@ In this lesson, you will continue to use Randori Guice, a Randori specific port 
 
 As a last point, a context can be placed on any node, not just the body.
 
-In the next lesson you will look more into Randori helper components with the {Randori ViewStack}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-9:-Dynamic-Loading-with-ViewStack].
+In the next lesson you will look more into Randori helper components with the {Randori ViewStack}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-09:-Dynamic-Loading-with-ViewStack].
