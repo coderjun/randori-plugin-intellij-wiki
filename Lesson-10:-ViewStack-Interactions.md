@@ -1,4 +1,3 @@
-
 <b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
 
 In this lesson, you will continue to use the ViewStack to load multiple views and create a simple behavior with tabs to manage it. As you may remember, the ViewStack understands how to perform the dynamic loading of your view’s html, and then asks Randori to perform the same steps outlined in previous lessons to build the newly loaded content.
@@ -108,3 +107,5 @@ popView.click( function( event:Event ):void {
 You will only ever see the top item on the stack. And you can only pop the top item off of the stack.
 
     The ViewStack class also has a selectView() method which accepts a url. This method causes the ViewStack to be resorted, moving the view specified by the url to the top of the stack. One caveat. In the event that multiple versions of the same url have been added to the ViewStack, the first one found will be moved. 
+
+In the next lesson, you will learn more about {using independent HTML fragments}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-11:-Fragments].
