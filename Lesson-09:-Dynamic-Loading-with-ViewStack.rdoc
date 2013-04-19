@@ -235,3 +235,5 @@ With Randori, everything starts with a URL to an HTML file. After that HTML file
 34. Save, build and run your app.
 
 When you press the load more button, you will see your people.html file is loaded. Randori finds the dynamic behaviors and mediators associated with this file and instantiates those as well, resulting in a list appearing in that area.
+
+In the next lesson, you will learn more about {interacting with the viewstack}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-10:-ViewStack-Interactions].
