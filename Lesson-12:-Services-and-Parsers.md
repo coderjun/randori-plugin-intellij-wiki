@@ -1,3 +1,5 @@
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details:}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
+
 **This lesson requires SDK version 0.2.5 or greater**
 
 In this lesson, you will explore the service model frequently used in Randori applications. It’s primarily comprised of two types of classes, Services and Parsers.
