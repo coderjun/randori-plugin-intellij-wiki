@@ -1,3 +1,5 @@
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details:}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
+
 In this lesson, you will use CSS to eliminate the data-* attributes in your code, allowing for a cleaner experience with HTML developers, promoting a simpler syntax for reuse, and allowing for a level of indirection in the behavior choices for Randori.
 
 1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ
@@ -60,4 +62,4 @@ In this lesson, you will use CSS to eliminate the data-* attributes in your code
 
     Everything should work as before, but now working from the CSS defined mediator and behaviors.
 
-In the next lesson, you will learn about {Randori’s dependency injection framework (Guice)}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-7:-Dependency-Injection] as you build and inject objects into your mediators.
+In the next lesson, you will learn about {Randori’s dependency injection framework (Guice)}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-07:-Dependency-Injection] as you build and inject objects into your mediators.
