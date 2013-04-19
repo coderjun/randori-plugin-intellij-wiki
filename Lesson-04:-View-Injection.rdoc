@@ -85,4 +85,4 @@ In this lesson, you will begin to work with the dependency and view injection co
 
       }
 
-In the next lesson you will {create a mediator to manage the index and interact with this behavior}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-5:-Adding-a-Mediator].
+In the next lesson you will {create a mediator to manage the index and interact with this behavior}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-05:-Adding-a-Mediator].
