@@ -1,3 +1,5 @@
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details:}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
+
 In this lesson, you will begin to work with the dependency and view injection concepts of Randori. These concepts are the key to Randori’s dynamic loading approach and to the ease at which Randori can scale to large applications. It will also begin to become clearer how Randori strives for separation of concerns in the application code and workflow.
 
 1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ.
