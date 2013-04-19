@@ -1,3 +1,5 @@
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details:}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
+
 In this lesson, you will use a pre-built Randori behavior named ViewStack. ViewStack is a common way to manage an area of your application in which multiple views will be shown; however, only one view will be show at a time.
 
 The ViewStack understands how to perform the dynamic loading of your view’s html, and then asks Randori to perform the same steps outlines in previous lessons to build the newly loaded content.
