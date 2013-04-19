@@ -1,3 +1,5 @@
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details:}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
+
 In this lesson, you will use Randori Guice, a Randori specific port of Google’s dependency injection framework to inject objects into your mediator. You will see how Randori will recursively resolve dependencies on your behalf and understand the ease at which this allows your application to scale.
 
 1. Ensure you have the SimpleTest project you created in earlier lessons open in IntelliJ.
@@ -189,4 +191,4 @@ In this lesson, you will use Randori Guice, a Randori specific port of Google’
     will see later, you can customize this behavior to decide which files should be left dynamic, and which 
     loaded initially.
 
-The next lesson will dive further into injection by covering {contexts}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-8:-Contexts], which governs how injection rules are applied and the subsequent lesson will explain how to ask Randori to ‘do something’ again by dynamically loading more content.
+The next lesson will dive further into injection by covering {contexts}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-08:-Contexts], which governs how injection rules are applied and the subsequent lesson will explain how to ask Randori to ‘do something’ again by dynamically loading more content.
