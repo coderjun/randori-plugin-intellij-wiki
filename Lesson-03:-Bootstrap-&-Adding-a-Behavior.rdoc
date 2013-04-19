@@ -17,7 +17,9 @@ In this lesson, you will add the basic script tags needed for Randori along with
    Right now Randori has a light dependency on several jQuery methods used mostly as a convenience mechanism. 
    It is likely that future versions of Randori will make this dependency optional.
 
-4. Next, you will add two more script tags below this one. These script tags will include Guice, a dependency injection framework, and the Randori framework.
+4. Next, you will add two more script tags below this one. These script tags will include Guice, a dependency injection framework, and the Randori framework. 
+
+'''Please Note:''' There is a small change in paths below depending on the SDK you are using. If you are using v0.2.3 or before, please update before continuing.
 
      <head>
        <title></title>
@@ -25,8 +27,8 @@ In this lesson, you will add the basic script tags needed for Randori along with
        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
        </script>
        <!-- Randori Dependencies -->
-       <script type="text/javascript" src="generated/lib/RandoriGuice.js"></script>
-       <script type="text/javascript" src="generated/lib/Randori.js"></script>
+        <script type="text/javascript" src="generated/lib/randori-guice-framework.js"></script>
+        <script type="text/javascript" src="generated/lib/randori-framework.js"></script>
      </head>
 
    When you ran the project in Lesson 2, the generated/lib folder was created.   If you skipped that step,    your project won't yet have a generated/lib folder. These will be added automatically after your 
@@ -155,4 +157,4 @@ In this lesson, you will add the basic script tags needed for Randori along with
 
 This is an extremely simple example, but it is the basis for much more complicated constructs as your application evolves. 
 
-In the next section we will look at {View Injection with your mediators}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-4:-View-Injection].
+In the next section we will look at {View Injection with your mediators}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-04:-View-Injection].
