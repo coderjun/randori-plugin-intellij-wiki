@@ -1,4 +1,4 @@
-Randori Plugin v0.2.5 is now available for download. 
+Randori Plugin v0.2.4 is now available for download. 
 
 If you were working with an older plugin, you must update your SDK to use this version. The instructions follow:
 
