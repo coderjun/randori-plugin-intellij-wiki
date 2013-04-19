@@ -1,4 +1,4 @@
-<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details:}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
 
 In this lesson, you will continue to use the ViewStack to load multiple views and create a simple behavior with tabs to manage it. As you may remember, the ViewStack understands how to perform the dynamic loading of your view’s html, and then asks Randori to perform the same steps outlined in previous lessons to build the newly loaded content.
 
