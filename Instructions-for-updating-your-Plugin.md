@@ -1,6 +1,6 @@
 Randori Plugin v0.2.4 is now available for download. 
 
-This Plugin contains significant compiler and IDE updates. However, it also requires an SDK update. 
+If you were working with an older plugin, you must update your SDK to use this version. The instructions follow:
 
 1. Update your plugin, then download the latest Randori SDK from https://github.com/RandoriAS/randori-sdk/archive/master.zip and save it on your drive in a known location. 
 
