@@ -1,4 +1,4 @@
-<b>Please Note:</b> There is a new plugin version available which requires an SDK change, (please read for more details)[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, {please read for more details}[https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin].
 
 In this lesson, you will add the basic script tags needed for Randori along with the Randori bootstrap code. You will then create a behavior which will allow your code to interact with the DOM.
 
