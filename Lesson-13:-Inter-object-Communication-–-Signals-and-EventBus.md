@@ -1,3 +1,5 @@
+<b>Please Note:</b> There is a new plugin version available which requires an SDK change, [please read for more details](https://github.com/RandoriAS/randori-plugin-intellij/wiki/Instructions-for-updating-your-Plugin).
+
 In this lesson, you will explore two decoupled methods of communication provided by the Randori framework. The two methods introduced in this lesson are generally a way to handle interoperability between your various cross-compiled objects. 
 
 Remember that, ultimately, Randori is primarily glue that allows the interoperability of JS, cross-compiled AS and/or C# and HTML/CSS. Therefore you will also have at your disposal the methods provided by any other libraries you choose to use, e.g. you have already used jQuery and event listeners to handle some tasks in the application. 
@@ -104,7 +106,6 @@ binder.bind( AppEventBus ).inScope( Scope.Singleton ).to( AppEventBus );
   In this code, you have instructed the dependency injection framework to create the AppEventBus but treat it as a Singleton. So, every object that requests the event bus will now receive the same version.
 
 21. Save your file and launch the app in a browser. Make sure you can see the console view and click load people. You should see that the PeopleMediator communicated with the IndexMediator through the event bus.
-
 
 
 
