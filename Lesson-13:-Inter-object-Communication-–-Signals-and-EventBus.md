@@ -17,6 +17,7 @@ public var dataLoadStarted:SimpleSignal;
   A SimpleSignal is a class based on the concepts of AS3 Signals by Robert Penner (thanks Rob). It’s a callback mechanism designed to allow decoupling like events but with several advantages. 
 This application is a tiny example of a few loosely related features. Does it need an eventbus? Likely no. However, the concepts here will scale well beyond this use.
 
+
 5. Add an [Inject] tag above the dataLoadStarted variable.
 ```
 [Inject]
