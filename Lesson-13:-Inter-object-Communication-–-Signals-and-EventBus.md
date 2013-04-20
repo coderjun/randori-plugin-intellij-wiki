@@ -5,8 +5,11 @@ In this lesson, you will explore two decoupled methods of communication provided
 Remember that, ultimately, Randori is primarily glue that allows the interoperability of JS, cross-compiled AS and/or C# and HTML/CSS. Therefore you will also have at your disposal the methods provided by any other libraries you choose to use, e.g. you have already used jQuery and event listeners to handle some tasks in the application. 
 
 1. Ensure you have the SimpleTest project open in IntelliJ
+
 2. Right click on the assets folder and create a new folder named eventBus.
+
 3. Right click on the data folder and create a new Randori Class named AppEventBus
+
 4. Add a public variable named dataLoadStarted of type SimpleSignal to the AppEventBus class.
 ```
 public var dataLoadStarted:SimpleSignal;
@@ -19,12 +22,14 @@ This application is a tiny example of a few loosely related features. Does it ne
 [Inject]
 public var dataLoadStarted:SimpleSignal;
 ```
+
 6. Add a second public variable named dataLoadCompleted of type SimpleSignal to the AppEventBus class and add an [Inject] tag above it.
 ```
 [Inject]
 public var dataLoadCompleted:SimpleSignal;
 ```
   This ‘event’ bus can contain any number of signals which can be individually listened for and dispatched.
+
 7. Open PeopleMediator and add a new public var named bus of type AppEventBus to the class and decorate it with an Inject annotation.
 ```
 [Inject]
@@ -32,9 +37,8 @@ public var appBus:AppEventBus;
 ```
   The event bus will now be injected into this mediator.
 
-8. Edit the onRegister() method. As the first line of the method you will call the dispatch() method of the 
+8. Edit the onRegister() method. As the first line of the method you will call the dispatch() method of the dataLoadStarted property of the bus and pass it a new Date object.
 ```
-dataLoadStarted property of the bus and pass it a new Date object.
     override protected function onRegister():void {
         appBus.dataLoadStarted.dispatch( new Date() );
 		service.get().then( handleResult );
@@ -53,25 +57,30 @@ private function handleResult( result:Array ):void {
   Effectively, when you start loading the data, you will dispatch one signal on the bus and another when it is complete, each with a Date object representing the time.
 
 10. Save your file and switch to the IndexMediator.
+
 11. Add a new public var named bus of type AppEventBus to the class and decorate it with an Inject annotation.
 ```
 [Inject]
 public var appBus:AppEventBus;
 ```
+
 12. At the bottom of the onRegister() method, add the following code snippet:
 ```
 appBus.dataLoadStarted.add( handleLoadStart );
 ```
   Here you are using the add() method to add a listener to that Signal. 
+
 13. In the onDeRegister() method, remove() the listener:
 ```
 appBus.dataLoadStarted.remove( handleLoadStart );
 ```
+
 14. Just below the onDeRegister() method, add a new method with the following signature:
 ```
 private function handleLoadStart( date:Date ):void {
 }
 ```
+
 15. Inside the method, call the Window.console.log() method and output the date as shown below:
 ```
 private function handleLoadStart( date:Date ):void {
@@ -79,11 +88,13 @@ private function handleLoadStart( date:Date ):void {
 }
 ```
   The static Window class holds many of the common objects, such as console, available in the browser.
+
 16. Inside the onRegister() method, add the following code:
 ```
 appBus.dataLoadCompleted.addOnce( handleLoadComplete );
 ```
   This time you are listening to the dataLoadComplete signal, but you are doing so with the addOnce() method. This method listens for the first signal to dispatch and then removes itself as a listener, so you will only receive one notification. 
+
 17. Add the following code to the onDeRegister() method:
 ```
 appBus.dataLoadCompleted.remove( handleLoadComplete );
@@ -98,7 +109,9 @@ private function handleLoadComplete( date:Date ):void {
 
 ```
   At this point everything is wired up for the event bus, unfortunately the IndexMediator and PeopleMediator will each get their own copy of the AppEventBus. We need to specify it should be a singleton to ensure they receive the same copy.
+
 19. Save this file and open your BoringContext.
+
 20. Add this line inside of the configure() method
 ```
 binder.bind( AppEventBus ).inScope( Scope.Singleton ).to( AppEventBus );
@@ -106,6 +119,5 @@ binder.bind( AppEventBus ).inScope( Scope.Singleton ).to( AppEventBus );
   In this code, you have instructed the dependency injection framework to create the AppEventBus but treat it as a Singleton. So, every object that requests the event bus will now receive the same version.
 
 21. Save your file and launch the app in a browser. Make sure you can see the console view and click load people. You should see that the PeopleMediator communicated with the IndexMediator through the event bus.
-
 
 
