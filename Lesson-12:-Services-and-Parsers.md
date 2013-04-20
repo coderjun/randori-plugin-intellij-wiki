@@ -238,3 +238,5 @@ private function handleResult( result:Array ):void {
 35. Save your code and run it. When you click the Push People button, you will see a list of committers. 
 
    If you watch the network requests coming from the application when you click the Button, you will see that the PeopleMediator is loaded, which requires the CommitterService, which requires CommitterParser. All are loaded, and then the code to load the committers.json file, parses it and passes it along to the SimpleList.
+
+In the next lesson, you will [learn about decoupled inter-object communication.](https://github.com/RandoriAS/randori-plugin-intellij/wiki/Lesson-13:-Inter-object-Communication-%E2%80%93-Signals-and-EventBus).
