@@ -44,3 +44,11 @@ Please update these references to read:
 
 After making these updates, your project should compile correctly and run with the latest plugin.
 
+Should you, however, after updating the SDK receive this error:
+```
+Problem SourcePath does not exist for Missing builtin type Object java.lang.Throwable
+```
+Then please refer to this comment on the issue list:
+https://github.com/RandoriAS/randori-plugin-intellij/issues/63#issuecomment-16800773
+
+This should correctly reset your SDK's Classpath.
