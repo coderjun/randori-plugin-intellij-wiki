@@ -31,7 +31,7 @@ public var dataLoadCompleted:SimpleSignal;
 ```
   This ‘event’ bus can contain any number of signals which can be individually listened for and dispatched.
 
-7. Open PeopleMediator and add a new public var named bus of type AppEventBus to the class and decorate it with an Inject annotation.
+7. Open PeopleMediator and add a new public var named appBus of type AppEventBus to the class and decorate it with an Inject annotation.
 ```
 [Inject]
 public var appBus:AppEventBus;
