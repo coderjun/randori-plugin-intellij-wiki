@@ -49,7 +49,6 @@ public var appBus:AppEventBus;
 SimpleSignal is used throughout the framework for simple messaging needs. It exposes several methods that you will use throughout this lesson. The first is dispatch() which takes a variable number of arguments, but allows you to pass data to anyone listening for the signal.
 
 9. Next Edit, the handleResult() method. This time call the dispatch() method of the dataLoadCompleted property instead and pass it a new Date object.
-
 ```
     private function handleResult( result:Array ):void {
         appBus.dataLoadCompleted.dispatch( new Date() );
