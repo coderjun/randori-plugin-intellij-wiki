@@ -51,10 +51,10 @@ SimpleSignal is used throughout the framework for simple messaging needs. It exp
 9. Next Edit, the handleResult() method. This time call the dispatch() method of the dataLoadCompleted property instead and pass it a new Date object.
 
 ```
-private function handleResult( result:Array ):void {
-    appBus.dataLoadCompleted.dispatch( new Date() );
-    names.data = result;
-}
+    private function handleResult( result:Array ):void {
+        appBus.dataLoadCompleted.dispatch( new Date() );
+        names.data = result;
+    }
 ```
   Effectively, when you start loading the data, you will dispatch one signal on the bus and another when it is complete, each with a Date object representing the time.
 
