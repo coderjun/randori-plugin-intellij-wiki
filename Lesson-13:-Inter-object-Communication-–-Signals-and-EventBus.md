@@ -6,9 +6,9 @@ Remember that, ultimately, Randori is primarily glue that allows the interoperab
 
 1. Ensure you have the SimpleTest project open in IntelliJ
 
-2. Right click on the assets folder and create a new folder named eventBus.
+2. Right click on the src folder and create a new package named eventBus.
 
-3. Right click on the data folder and create a new Randori Class named AppEventBus
+3. Right click on the eventBus package and create a new Randori Class named AppEventBus
 
 4. Add a public variable named dataLoadStarted of type SimpleSignal to the AppEventBus class.
 ```
@@ -49,8 +49,9 @@ public var appBus:AppEventBus;
 SimpleSignal is used throughout the framework for simple messaging needs. It exposes several methods that you will use throughout this lesson. The first is dispatch() which takes a variable number of arguments, but allows you to pass data to anyone listening for the signal.
 
 9. Next Edit, the handleResult() method. This time call the dispatch() method of the dataLoadCompleted property instead and pass it a new Date object.
-private function handleResult( result:Array ):void {
+
 ```
+private function handleResult( result:Array ):void {
     appBus.dataLoadCompleted.dispatch( new Date() );
     names.data = result;
 }
@@ -120,5 +121,4 @@ binder.bind( AppEventBus ).inScope( Scope.Singleton ).to( AppEventBus );
   In this code, you have instructed the dependency injection framework to create the AppEventBus but treat it as a Singleton. So, every object that requests the event bus will now receive the same version.
 
 21. Save your file and launch the app in a browser. Make sure you can see the console view and click load people. You should see that the PeopleMediator communicated with the IndexMediator through the event bus.
-
 
