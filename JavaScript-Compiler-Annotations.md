@@ -1,7 +1,7 @@
 ### [JavaScript]
 The [JavaScript] tag always decorates a class or package level function and has the following defined arguments:
 
-**export : Boolean** (default true) – Controls the export of this particular JavaScript class. If the class is marked export="false" then the class itself is not exported into a separate file, or as a portion of a monolithic file. References to the class in other areas of the source persist and remain unchanged. The use case of this argument is to allow a compile time dependency on an object that will be fulfilled by externally available code at runtime. So, for example, I can mark HTMLDivElement as export=”false” as the JavaScript virtual machine defines this class at runtime.
+**export : Boolean** (default true) – Controls the export of this particular JavaScript class. If the class is marked export="false" then the class itself is not exported into a separate file, or as a portion of a monolithic file. References to the class in other areas of the source persist and remain unchanged. The use case of this argument is to allow a compile time dependency on an object that will be fulfilled by externally available code at runtime. So, for example, I can mark HTMLDivElement as export=”false” as the JavaScript virtual machine (or simply, the browser) defines this class at runtime.
 
 **mode : String** (default proto, accepts proto, global or json) – Defines the way in which the class code is treated at runtime. 
 
