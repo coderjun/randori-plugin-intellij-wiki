@@ -272,6 +272,29 @@ var x:HTMLDivElement = new HTMLDivElement();
 ```
 var x = document.createElement('div');
 ```
+In case of constructor arguments that need to be passed to the factory method, use this annotation:
+**Source Definition**
+```
+package randori.example.ctorargs {
+
+  [JavaScript(export="false", name="MyClass")]
+  [JavaScriptConstructor(factoryMethod="MyClass.createInstance(...args)")]
+  public class MyClass {
+    public MyClass(str:String, i:int, b:Boolean)
+  }
+}
+```
+
+**Source Use**
+
+```
+var x:MyClass = new MyClass("text", 1, true);	
+```
+
+**Exported Use**
+```
+var x = MyClass.createInstance("text", 1, true);
+```
 
 ---
 ### [JavaScriptMethod]
