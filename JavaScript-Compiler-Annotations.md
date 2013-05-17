@@ -100,6 +100,10 @@ foo.Bar.staticMethod();
 
 * _global_ - In global mode, the static methods and properties of the class become methods and properties of the window object itself without regard to the original package of the class. Non static methods and properties should be ignored and, although we may not be able to enforce at this time, this object should NOT be instantiated anywhere in the source. It is effectively a static class. So, foo.Bar.method1 exports simply as method1. Further, all references to foo.Bar.method1() now simply become method1()
 
+  In the case of a package level function being marked as mode="global" then the function definition is to be discarded and the function's body will be the only exported code. Examples follow:
+
+ _**Static Class**_
+
  **Source Definition**
 ```
 package foo {
@@ -130,6 +134,32 @@ Bar.thing = "Bob";
 ```	
 staticMethod()
 thing = "Bob";
+```
+
+ _**Package Level Function**_
+
+ **Source Definition**
+```
+package foo {
+
+[JavaScript(mode="global")]
+public function bar {
+  test("1");
+  test("2");
+  test("3");
+  }
+}
+```
+**Exported Definition**
+```	
+test("1");
+test("2");
+test("3");
+```
+**Source Use**
+Any attempted use of the package level function marked as global inside of ActionScript code should ideally raise an error.
+```
+bar(); //compiler error
 ```
 
 * _json_ - The main use for mode="json" is to create compile time value objects which are treated as generic JavaScript objects at runtime. Specifying mode="json" should implicitly mark the class as export="false". There are two cases under json, constructor setting and property setting.
