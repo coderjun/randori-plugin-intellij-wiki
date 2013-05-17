@@ -347,37 +347,6 @@ x.send(null);
 x.send(null);
 ```
 
-**mode:String** (default null, global) – Similar to the mode attribute of the JavaScript annotation, the global mode of the JavaScriptMethod annotation instructs the compiler to generate the code outside of any structure, such as a method or class block. This annotation should only be legal on private static functions of a class. The first use case is our testing integration. The only use case we currently have is in conjunction with the global mode of the JavaScript annotation.
-
-**Source Definition**
-
-```
-package foo {
-import randori.webkit.page.Window;
-
-[JavaScript(mode="global")]
-public class Bar {
-
-	[JavaScriptMethod(mode="global")]
-	private static function doItGlobal() {
-		Window.console.log("I run immediately")
-	}
-
-	public static function doItNotQuite() {
-		Window.console.log("You need to call me")
-	}
-}
-}
-```
-
-**Exported Definition**
-```
-console.log("I run immediately");
-
-doItNotQuite = function() {
-  console.log("You need to call me");
-};
-```
 
 ---
 ### [JavaScriptProperty]
